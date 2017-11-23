@@ -1,0 +1,58 @@
+<style>
+
+.fBlanco{
+	background: white;
+}
+
+
+.naranja1{
+  color:orange;
+  text-align: center;
+  font-size: 400%;
+
+}
+
+.centrado{
+	width: 100%;
+	padding: 10%;
+	padding-top: 0%;
+	font-size: 140%;
+}
+
+.centrado label{
+	color: #1E88E5;
+}
+
+.centrado input{
+	margin: 1%;
+	font-size: 130%;
+	width: 50%;
+}
+
+
+.miClase{
+	color:red;
+}
+
+
+</style>
+
+
+
+<body class = "fBlanco">
+
+<h1 class = "naranja1">Editando Usuario</h1>
+
+<section class ="centrado">
+<%= render 'form', usuario: @usuario %>
+
+<%= link_to 'Ver Perfil', @usuario %> |
+<%if @usuario.activo%>
+    <%= link_to 'Regresar', usuarios_path %>
+<%else%>
+    <%= link_to 'Regresar', {:controller => "rechazados", :action => "usuarios"} %> 
+<%end%>
+
+</section>
+
+</body>

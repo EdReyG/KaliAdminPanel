@@ -1,0 +1,56 @@
+<style>
+
+.fBlanco{
+	background: white;
+}
+
+
+.naranja1{
+  color:orange;
+  text-align: center;
+  font-size: 400%;
+
+}
+
+.centrado{
+	width: 100%;
+	padding: 10%;
+	padding-top: 0%;
+	font-size: 140%;
+}
+
+.centrado label{
+	color: #1E88E5;
+}
+
+.centrado input{
+	margin: 1%;
+	font-size: 130%;
+}
+
+
+.miClase{
+	color:red;
+}
+
+</style>
+
+
+
+<body class = "fBlanco">
+
+	<header class="header">
+
+	</header>
+
+<section class ="centrado">
+<%= render 'form', user: @usuario %>
+
+<%= link_to 'Regresar',:controller => "users", :action => "index" %>
+
+
+<%=@res%>
+
+</section>
+
+</body>

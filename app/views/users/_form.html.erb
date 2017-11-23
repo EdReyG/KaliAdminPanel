@@ -1,0 +1,131 @@
+<%= form_with(model: user, local: true) do |form| %>
+
+<br><br><br><br><br><br>
+  <div class="registro_1">
+    <div class="row">
+      <div class="col-md-12">
+        <br><br><br><br><br><br><br><br>
+        <div class="row">
+          <div class="col-md-3">
+            <script>
+            var handleFileSelect = function(evt) {
+                var files = evt.target.files;
+                var file = files[0];
+
+                if (files && file) {
+                    var reader = new FileReader();
+
+                    reader.onload = function(readerEvt) {
+                        var binaryString = readerEvt.target.result;
+                        var fileending = file.type;
+
+                        var test = btoa(binaryString);
+                        var final = "data:" + fileending+";base64," + test;
+                        document.getElementById("img_preview").src = final
+                        document.getElementById("usuario_foto").value = test
+                    };
+
+                    reader.readAsBinaryString(file);
+                }
+            };
+
+            if (window.File && window.FileReader && window.FileList && window.Blob) {
+                document.getElementById('filePicker').addEventListener('change', handleFileSelect, false);
+            } else {
+                alert('The File APIs are not fully supported in this browser.');
+            }
+            </script>
+            <div class="form-group">
+              <img id="img_preview" src="<%= user.foto %>" style="width:200px; height: auto; margin-bottom: 15px;"/>
+            <input type="file" id="filePicker" class="form-control">
+            <div class="invisible">
+                <%= form.label :foto, "Picture" %>
+                <%= form.text_field :foto, id: :usuario_foto %>
+            </div>
+
+          </div>
+        </div>
+          <div class="col-md-9">
+  					  <div class="form-group">
+
+                  <%= form.text_field :nombre_usuario, id: :usuario_nombre_usuario, placeholder: "Nombre de usuario", :class => 'textfield_img'%>
+  						</div>
+              <div class="form-group">
+
+                <%= form.text_field :apellidos, id: :usuario_apellidos, placeholder: "Apellidos" , :class => 'textfield_img'%>
+  						</div>
+              <div class="form-group">
+
+                <%= form.text_field :correo, id: :usuario_correo, placeholder: "Email" , :class => 'textfield_img'%>
+  						</div>
+              <div class="form-group">
+
+                <%= form.password_field :contrasena, id: :usuario_contrasena, placeholder: "Contraseña" , :class => 'textfield_img'%>
+
+  						</div>
+
+<br><br><br><br>
+
+  						</div>
+    		 </div>
+
+         <div class="row">
+
+			</div>
+       </div>
+       <br><br><br><br>
+    </div>
+  </div>
+  <br>   <br><br><br><br>
+  <div class= "servicio_reg">
+    <br><br><br><br><br><br><br><br>
+  	<div class="row">
+  		<div class="col-md-12">
+        <script>
+          $(".radio_btn_uncheck_o").on("change", function(){
+          $("#reference_btn").toggle($(this).hasClass("radio_btn_uncheck_o"));
+          });
+        </script>
+        <div class="form-group">
+           <div class="col-sm-offset-2 col-sm-10">					<!--<label for="inputEmail3" class="col-sm-2 control-label">
+            Email
+          </label>-->
+              <%= form.radio_button(:tipo, "u", :class => "radio_btn_uncheck_b", :checked => (:usuario_tipo == 'u')) %>
+              <%= label_tag(:usuario_tipo, "",:class => "busco_lab") %>
+
+            <!--<input type="email" class="form-control" id="inputEmail3" />-->
+
+          </div>
+        </div>
+
+        <div class="form-group">
+           <div class="col-sm-offset-2 col-sm-10">
+            <%= form.radio_button(:tipo, "u", :class => "radio_btn_uncheck_o", :checked => (:usuario_tipo == 'u')) %>
+            <%= label_tag(:usuario_tipo, "", :class => "ofrezco_lab") %>
+           </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <%= form.radio_button(:tipo, "v", :class => "radio_btn_uncheck_v", :checked => (:usuario_tipo == 'v')) %>
+              <%= label_tag(:usuario_tipo,  "", :class => "vendedor_lab") %>
+          </div>
+        </div>
+        <div class="row">
+          <br><br><br><br><br><br><br>
+  		
+  				<div class="col-md-4">
+
+             <div class="actions">
+
+               <%=form.submit (""), :class => 'submit_registro'%>
+
+             </div>
+
+  				</div>
+        </div>
+        <br>
+
+      </div>
+  </div>
+</div>
+<% end %>
