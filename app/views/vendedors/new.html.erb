@@ -1,0 +1,72 @@
+<style>
+
+.fBlanco{
+	background: white;
+}
+
+
+.naranja1{
+  color:orange;
+  text-align: center;
+  font-size: 400%;
+
+}
+
+.centrado{
+	width: 100%;
+	padding: 10%;
+	padding-top: 0%;
+	font-size: 140%;
+}
+
+.centrado label{
+	color: #1E88E5;
+}
+
+.centrado input{
+	margin: 1%;
+	font-size: 130%;
+}
+
+
+.miClase{
+	color:red;
+}
+
+.dentro select{
+	background-color: #FFF3E0;
+	font-size: 100%;
+}
+
+.alad{
+	margin-left: 30%;
+}
+
+.der{
+	text-align: left;
+	font-size: 120%;
+}	
+
+</style>
+
+
+<body class = "fBlanco">
+
+<h1 class = "naranja1">Alta de Vendedor</h1>
+
+<section class ="centrado">
+
+<%= render 'form', vendedor: @vendedor %>
+<br>
+<%= link_to 'Regresar', vendedors_path,:class => "alad" %>
+
+<br><br>
+<label>Si no encuentras a la persona que buscas, es porque primero debes ir a usuarios y cambiarle el tipo de usuarios a 'v'</label>
+
+</section>
+
+</body>
+
+
+
+

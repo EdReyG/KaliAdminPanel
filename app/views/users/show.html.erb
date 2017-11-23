@@ -1,5 +1,5 @@
 <style>
-  
+
   *{
   box-sizing: border-box;
   text-align: justify;
@@ -22,7 +22,7 @@
   box-shadow: 0 0 10px rgba(0,0,0,.2);
   padding: 2%;
   margin-top: 2%;
-} 
+}
 
 .naranja{
   color:orange;
@@ -48,7 +48,7 @@
 #btAceptar{
   margin-left: 25%;
   background-color: green;
-} 
+}
 
 #btRechazar{
   float: right;
@@ -83,7 +83,7 @@
   border: 2px solid red;
 }
 
-#fotoUsuario{ 
+#fotoUsuario{
   margin-top: 1.6%;
   float: left;
   width: 35%;
@@ -121,7 +121,7 @@ Para el cambio de los tamaños de las pantallas
 @media screen and (max-width: 1200px){
 
 
-  #fotoUsuario{ 
+  #fotoUsuario{
   float: left;
   width: 35%;
   height: 360px;
@@ -135,7 +135,7 @@ Para el cambio de los tamaños de las pantallas
 
 
   #fotoUsuario{
-  margin-top: 1%; 
+  margin-top: 1%;
   float: left;
   width: 35%;
   height: 360px;
@@ -157,14 +157,14 @@ Para el cambio de los tamaños de las pantallas
 @media screen and (max-width: 800px){
 
   #fotoUsuario{
-  margin-top: 6%; 
+  margin-top: 6%;
   float: left;
   width: 35%;
   height: 300px;
   background-color: orange;
   padding: 10px;
 }
-  
+
   .etiquetas{
     margin-top: 2%;
     margin-bottom: 2%;
@@ -185,7 +185,7 @@ Para el cambio de los tamaños de las pantallas
   margin-left: 12%;
   background-color: green;
   margin-right: 0%;
-  } 
+  }
 
   #btRechazar{
   background-color: red;
@@ -195,11 +195,11 @@ Para el cambio de los tamaños de las pantallas
 
   .naranja{
     float: none;
-    font-size: 160%;  
+    font-size: 160%;
   }
 
   #fotoUsuario{
-  margin-top: 5%; 
+  margin-top: 5%;
   float: none;
   width: 35%;
   margin-left: 32.5%;
@@ -231,63 +231,23 @@ Para el cambio de los tamaños de las pantallas
 
 
 <p id="notice"><%= notice %></p>
-<!--
-<p>
-  <strong>Nombre usuario:</strong>
-  <%= @usuario.nombre_usuario %>
-</p>
 
-<p>
-  <strong>Apellidos:</strong>
-  <%= @usuario.apellidos %>
-</p>
-
-<p>
-  <strong>Celular:</strong>
-  <%= @usuario.celular %>
-</p>
-
-<p>
-  <strong>Correo:</strong>
-  <%= @usuario.correo %>
-</p>
-
-<p>
-  <strong>Contrasena:</strong>
-  <%= @usuario.contrasena %>
-</p>
-
-<p>
-  <strong>Activo:</strong>
-  <%= @usuario.activo %>
-</p>
-
-<p>
-  <strong>Tipo:</strong>
-  <%= @usuario.tipo %>
-</p>
-
-<p>
-  <strong>Foto:</strong>
-  <%= @usuario.foto %>
-</p>
--->
 
 <body class = "fBlanco">
 
 <header id="main-header">
-    
+
     <a id="logo-header" class="ocultar" >
       <span class="site-name">Usuarios</span>
-      <span class="site-desc"><%= @usuario.nombre_usuario %> <%= @usuario.apellidos %></span>
+      <span class="site-desc"><%= @usuario.name %> <%= @usuario.apellidos %></span>
     </a> <!-- / #logo-header -->
- 
+
     <nav>
       <ul>
         <li id = "op4"><a><%= link_to "Inicio", :controller => "inicio", :action => "opciones" %></a></li>
       </ul>
     </nav><!-- / nav -->
- 
+
   </header><!-- / #main-header -->
 
 <section id = "nuevoUsuario">
@@ -299,7 +259,7 @@ Para el cambio de los tamaños de las pantallas
   <%begin%>
   <!--Aqui pongo el despliegue de la foto-->
   <!--Se logra gracias a lo que esta en el controlador-->
-    <img src="/<%=@usuario.foto%>" width="50px"> 
+    <img src="/<%=@usuario.foto%>" width="50px">
     <br>
   <%rescue%>
   <%end%>
@@ -307,11 +267,11 @@ Para el cambio de los tamaños de las pantallas
 
       <br>
       <label class = "etiquetas">Nombre</label>
-      <a class = "etiquetas cajita"><%= @usuario.nombre_usuario %></a>
+      <a class = "etiquetas cajita"><%= @usuario.name %></a>
       <label class = "etiquetas">Apellidos</label>
       <a class = "etiquetas cajita"><%= @usuario.apellidos %></a>
       <label class = "etiquetas">Correo electrónico</label>
-      <a class = "etiquetas cajita"><%= @usuario.correo %></a>
+      <a class = "etiquetas cajita"><%= @usuario.email %></a>
       <label class = "etiquetas">Teléfono</label>
       <a class = "etiquetas cajita"> <%= @usuario.celular %> </a>
       <label class = "etiquetas">Activo</label>
@@ -322,18 +282,18 @@ Para el cambio de los tamaños de las pantallas
       <%end%>
 
   </article>
-  
+
 </section>
 
 
 
 <div id = "datosUsuario">
-<%= link_to 'Editar', edit_usuario_path(@usuario) %> |
+<%= link_to 'Editar', edit_user_path(@usuario) %> |
 
 <%if @usuario.activo%>
-    <%= link_to 'Regresar', usuarios_path %>
+    <%= link_to 'Regresar', user_path %>
 <%else%>
-    <%= link_to 'Regresar', {:controller => "rechazados", :action => "usuarios"} %> 
+    <%= link_to 'Regresar', {:controller => "rechazados", :action => "users"} %>
 <%end%>
 
 

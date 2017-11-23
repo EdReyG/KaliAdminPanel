@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  codigo: MyString
+  user_id: 1
+  fecha: 2017-11-23
+  fecha_venta: 2017-11-23 10:33:02
+
+two:
+  codigo: MyString
+  user_id: 1
+  fecha: 2017-11-23
+  fecha_venta: 2017-11-23 10:33:02

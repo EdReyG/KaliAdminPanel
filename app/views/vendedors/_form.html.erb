@@ -1,0 +1,34 @@
+<%= form_with(model: vendedor, local: true) do |form| %>
+  <% if vendedor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(vendedor.errors.count, "error") %> prohibited this vendedor from being saved:</h2>
+
+      <ul>
+      <% vendedor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%=form.label :codigo %>
+    <label>Escriba letras y numeros al azar, deben ser MAXIMO 6 digitos</label>
+    <%= form.text_field :codigo, id: :vendedor_codigo %>
+  </div>
+
+  <div class="field dentro">
+    <% form.label :usuario_id %>
+    <label>Selecciona el usuario para hacerlo vendedor y darle su código</label>
+    <br>
+    <%=form.collection_select(:usuario_id, Usuario.find_by_sql("
+SELECT * FROM usuarios WHERE usuarios.tipo = 'v' AND id NOT IN(SELECT vendedors.usuario_id FROM vendedors);"), :id,:name_with_initial, prompt: "Selecciona al usuario que decidas darle su código de vendedor", class: 'grande_l') %>
+  </div>
+
+  <br>
+
+  <div class="actions der">
+    <%= form.submit("Aceptar") %>
+  </div>
+<% end %>
+    

@@ -48,7 +48,7 @@
           <div class="col-md-9">
   					  <div class="form-group">
 
-                  <%= form.text_field :nombre_usuario, id: :usuario_nombre_usuario, placeholder: "Nombre de usuario", :class => 'textfield_img'%>
+                  <%= form.text_field :name, id: :usuario_name, placeholder: "Nombre de usuario", :class => 'textfield_img'%>
   						</div>
               <div class="form-group">
 
@@ -56,11 +56,11 @@
   						</div>
               <div class="form-group">
 
-                <%= form.text_field :correo, id: :usuario_correo, placeholder: "Email" , :class => 'textfield_img'%>
+                <%= form.text_field :email, id: :usuario_email, placeholder: "Email" , :class => 'textfield_img'%>
   						</div>
               <div class="form-group">
 
-                <%= form.password_field :contrasena, id: :usuario_contrasena, placeholder: "Contraseña" , :class => 'textfield_img'%>
+                <%= form.password_field :encrypted_password, id: :usuario_encrypted_password, placeholder: "Contraseña" , :class => 'textfield_img'%>
 
   						</div>
 
@@ -112,7 +112,7 @@
         </div>
         <div class="row">
           <br><br><br><br><br><br><br>
-  		
+
   				<div class="col-md-4">
 
              <div class="actions">

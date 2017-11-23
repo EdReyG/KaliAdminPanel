@@ -1,0 +1,221 @@
+<style>
+
+#mapa{
+    width: 100%;
+    height: 500px;
+  }
+
+@media screen and (max-width: 700px){
+  #mapa{
+    width: 80%;
+    height: 300px;
+    margin: 10%;
+    margin-top: 100%;
+  }
+
+  .ocultito{
+    display: inline-block;
+  }
+
+}
+
+#fBlanco{
+  background-color: white;
+}
+
+.naranja{
+  color: orange;
+  font-weight: bold;
+
+}
+
+.arribita{
+  margin-top:-5%;
+  padding-top: 0%;
+}
+
+.arribita2{
+  margin-top: 1%;
+  padding-top: 10%;
+}
+
+.etiquetas{
+  font-size: 150%;
+  float: left;
+  clear: left;
+  text-align: left;
+  margin-bottom: 2%;
+}
+
+.cajita{
+  margin-left: 10%;
+  width: 90%;
+  background-color: #FFCC80;
+  padding: 0.5%;
+}
+
+#otraCajita{
+  width: 100%;
+  text-align: center;
+}
+
+.ocultito{
+  display: none;
+}
+
+.siempreOculto{
+  display: none;
+}
+
+
+
+.fBlanco{
+	background-color: white;
+}
+
+
+#btIr{
+  margin-right: 20%;
+  margin-top: 32%;
+}
+
+.white{
+	color: white;
+	font-weight: bold;
+}
+
+@media screen and (max-width: 800px){
+    #btIr{
+      margin-right: -10%;
+      margin-top: 32%;
+}
+}
+
+.naranja{
+	margin-top: -1%;
+}
+
+.fNaranja{
+	margin-top: 35%;
+	clear: both;
+	background-color: orange;
+	width: 100%;
+  height: auto;
+}
+
+
+@media screen and (min-width: 825px){
+
+
+  .derecha{
+    margin-right: -50%;
+  }
+
+
+
+
+}
+
+#correo{
+  float: left;
+  clear: left;
+}
+#nombre{
+  float: left;
+  clear: left;
+}
+
+</style>
+
+<body class = "fBlanco">
+
+<header id="main-header">
+    
+    <a id="logo-header" class="ocultar" >
+      <span class="site-name">Vendedor</span>
+      <span class="site-desc">Historial</span>
+    </a> <!-- / #logo-header -->
+ 
+    <nav>
+      <ul>
+        
+        <li id = "op4"><a><%= link_to "Vendedores", :controller => "vendedors", :action => "index" %></a></li>
+      </ul>
+    </nav><!-- / nav -->
+ 
+  </header>
+    
+
+  <section id = "nuevoUsuario">
+  <article>
+  <h1 class="naranja" >DATOS DEL VENDEDOR</h1>
+
+  <div class = "cuerpoUsuario">
+  
+    <div id = "datosUsuario">
+
+      <%begin%>
+  <!--Aqui pongo el despliegue de la foto-->
+  <!--Se logra gracias a lo que esta en el controlador-->
+    <img src="/<%=@usuario.foto%>" width="50px"> 
+    <br>
+  <%rescue%>
+  <%end%>
+
+      <label class = "etiquetas">Nombre</label>
+      <a class = "etiquetas cajita"><%= @usuario.nombre_usuario %></a>
+      <label class = "etiquetas">Apellidos</label>
+      <a class = "etiquetas cajita"><%= @usuario.apellidos %></a>
+      <label class = "etiquetas">Correo electrónico</label>
+      <a class = "etiquetas cajita"><%= @usuario.correo %></a>
+      <label class = "etiquetas">Teléfono</label>
+      <a class = "etiquetas cajita"> <%= @usuario.celular %> </a>
+      <label class = "etiquetas">Activo</label>
+      <%if @usuario.activo%>
+        <a class = "etiquetas cajita">Sí</a>
+      <%else%>
+        <a class = "etiquetas cajita">No</a>
+      <%end%>
+    </div>
+
+  </div>
+  </article>
+  
+</section>
+
+<section class = "fNaranja">
+	<!--Aqui se despliega la fecha de la venta, el nombre de la persona a la que se refirió-->
+	<article>
+  		<h1 class = "white" >VENTAS REALIZADAS</h1>
+
+      <br><br><br><br><br>
+
+  		<ul>
+          <% @vendidos.each do |usuario| %>
+          <li>
+            <span id = "nombre"><%=usuario.nombre_usuario%> <%=usuario.apellidos%></span>
+            <span id = "correo">Celular: <%=usuario.celular%> Fecha: <%=usuario.fecha_venta%></span>
+          </li>
+          <% end %>
+        </ul>      
+  	</article>
+</section>
+
+
+
+<!--
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Codigo:</strong>
+  <%= @vendedor.codigo %>
+</p>
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @vendedor.usuario %>
+</p>
+
+<%= link_to 'Edit', edit_vendedor_path(@vendedor) %> |
+<%= link_to 'Back', vendedors_path %>-->
+</body>

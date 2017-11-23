@@ -112,10 +112,10 @@ class UsersController < ApplicationController
   def create
 
     @usuario = User.new(usuario_params)
-    contra = @usuario[:contrasena]
+    contra = @usuario[:encrypted_password]
     puts contra
-    @usuario[:contrasena] = Digest::SHA256.base64digest '#{contra}'
-    puts @usuario[:contrasena]
+    @usuario[:encrypted_password] = Digest::SHA256.base64digest '#{contra}'
+    puts @usuario[:encrypted_password]
 
     respond_to do |format|
       if @usuario.save
@@ -163,11 +163,8 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def usuario_params
-      params.require(:user).permit(:nombre_usuario, :apellidos,  :correo, :contrasena, :activo, :tipo, :foto)
+      params.require(:user).permit(:name, :apellidos,  :email, :encrypted_password, :activo, :tipo, :foto)
     end
 
-    def venta_params
-      params.require(:venta).permit(:usuario_id_venta, :vendedor_id)
-    end
 
 end
