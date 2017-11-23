@@ -122,9 +122,9 @@ ul li span{
     <nav>
       <ul>
 
-        <li id = "op4"><a><%= link_to "Usuarios", :controller => "usuarios", :action => "index" %></a></li>
+        <li id = "op4"><a><%= link_to "Usuarios", :controller => "users", :action => "index" %></a></li>
         <li id = "op4"><a><%= link_to "Negocios", :controller => "negocios", :action => "index" %></a></li>
-        <li id = "op4"><a><%= link_to "Promociones", :controller => "promocions", :action => "index" %></a></li>
+
         <li id = "op4"><a><%= link_to "Inicio", :controller => "inicio", :action => "opciones" %></a></li>
       </ul>
     </nav><!-- / nav -->
@@ -187,34 +187,6 @@ ul li span{
         </ul>
         <%else%>
               <h1>No hay promociones con solicitudes pendientes...</h1>
-        <%end%>
-    </article> <!-- /article -->
-
-</section>
-
-<section id="main-content">
-    <article id = "primer">
-      <header>
-      <div>
-      <%=link_to "Actualizaciones rechazadas", {controller: "rechazados", action: "actualizaciones"}, class: "rojo"%>
-        </div>
-        <h1>ACTUALIZACIONES PENDIENTES</h1>
-      </header>
-      <br><br><br>
-    <%if @actualizaciones.length >0%>
-      <ul>
-          <% @actualizaciones.each do |actualizacion| %>
-          <li>
-            <span id = "nombre">Negocio: <%=Negocio.find(actualizacion.negocio.id).nombre_empresa%></span>
-
-            <button id = "btIr">
-                    <%= link_to 'Ver Perfil', actualizacion %>
-            </button>
-          </li>
-          <% end %>
-        </ul>
-        <%else%>
-              <h1>No hay actualizaciones de negocios pendientes...</h1>
         <%end%>
     </article> <!-- /article -->
 

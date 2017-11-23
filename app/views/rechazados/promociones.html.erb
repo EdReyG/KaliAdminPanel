@@ -1,6 +1,16 @@
-  <style>
-  .amarillo{
+<style>
 
+.rojon{
+  color: red;
+}
+
+section ul li:nth-child(odd){
+  background-color:red;
+  color: white;
+}
+
+    .amarillo{
+  
   font-weight: bold;
   //background: yellow;
   font-size: 100%;
@@ -27,7 +37,7 @@ margin: 0%
 
 #elem{
   margin-top: -5%;
-  margin-left: -15%;
+  margin-left: -15%; 
 }
 
 #btIr{
@@ -64,12 +74,12 @@ ul li span{
 #btIr{ float: right;
   margin-top: 3%;
   width: 30%;
-
+  
 }
 
 .nuevo{
 
-  border-radius: 5px;
+  border-radius: 5px; 
 
 }
 }
@@ -89,53 +99,47 @@ ul li span{
 .naranja{
   color: orange;
 }
-  </style>
 
-  <header id="main-header">
+</style>
 
+
+<header id="main-header">
+    
     <a id="logo-header" class="ocultar" >
-      <span class="site-name">Usuarios Registrados</span>
-      <span class="site-desc">Lista (por apellidos)</span>
+      <span class="site-name">Promociones Rechazadas y BAJAS</span>
+      <span class="site-desc">Lista (por fecha)</span>
     </a> <!-- / #logo-header -->
-
-    <nav>
+ 
+    <nav class = "abajo">
       <ul>
-        <li id = "op4"><a><%= link_to "Negocios", :controller => "negocios", :action => "index" %></a></li>
-        <li id = "op4"><a><%= link_to "Regresar", :controller => "inicio", :action => "opciones" %></a></li>
+        <!--<li id = "op4"><a><%= link_to "Usuarios Rechazados", :controller => "rechazados", :action => "usuarios" %></a></li>
+        <li id = "op4"><a><%= link_to "Promos rechazadas", :controller => "rechazados", :action => "promociones" %></a></li>-->
+        <li id = "op4"><a><%= link_to "Regresar", :controller => "promocions", :action => "index" %></a></li>
       </ul>
     </nav><!-- / nav -->
-
-  </header><!-- / #main-header -->
-
-<section id="main-content">
+ 
+  </header>
 
 
+
+  <section id="main-content">
+  
     <article id = "primer">
       <header>
-      <div>
-        <%=link_to "Usuarios Rechazados y BAJAS", {controller: "rechazados", action: "users"}, class: "rojo"%>
-      </div>
-        <h1>USUARIOS</h1>
+        <h1 class = "rojon">PROMOCIONES RECHAZADAS Y BAJAS</h1>
       </header>
-      <br>
-      <br>
-      <br>
-
+      <br><br><br><br>
         <ul>
-          <% @usuarios.each do |usuario| %>
+          <% @promociones.each do |promocion| %>
           <li>
-
-            <span id = "nombre"><%=user.apellidos%>, <%=user.nombre_usuario%> </span>
-            <span id = "correo"><%=user.correo%></span>
+            <span id = "nombre"><%=promocion.promocion%> </span>
+            <span id = "correo">Negocio: <%= promocion.negocio.nombre_empresa %></span>
             <button id = "btIr">
-                    <%= link_to 'Ver Perfil', user %>
+                    <%= link_to 'Ver Promocion', promocion %> 
             </button>
-
           </li>
           <% end %>
-        </ul>
+        </ul>           
     </article> <!-- /article -->
-
+  
 </section>
-
-<label class = "nuevo"><%= link_to 'Registrar nuevo usuario', new_user_path %></label>
