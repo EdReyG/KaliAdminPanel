@@ -16,4 +16,14 @@ Rails.application.routes.draw do
 
   post 'users/create'
 
+  get 'rechazados/users'
+
+  get 'rechazados/negocios'
+
+  get 'rechazados/promociones'
+
+  get 'pendientes/rechazados'
+
+  get 'pendientes/index'
+
 end

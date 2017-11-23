@@ -1,0 +1,742 @@
+// Place all the styles related to the Usuarios controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.descListaU{
+	font-size: 135%;
+	margin-left: 8%;
+	margin-right: 8%;
+	width: 84%;
+	margin-bottom: -3%;
+}
+
+.grandeTit{
+	font-size: 300%;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Helvetica, Arial, sans-serif;
+	color: #666;
+	background: #FFA726;
+	font-size: 150%;
+	line-height: 1.5em;
+}
+
+
+h1 {
+	font-size: 250%;
+	line-height: 1.3em;
+	text-align: center;
+	font-weight: 300;
+}
+
+p {
+	margin: 0 0 1.5em 0;
+}
+
+
+
+#main-header {
+	background: #1E88E5;
+	color: white;
+	height: 80px;
+	width: 100%;
+	align-content: center;
+
+}
+
+#tablaUsuarios th{
+	font-size: 150%;
+	color:#1E88E5;
+	background: black;
+	padding-top: 1%;
+	padding-bottom: 1%;
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+
+
+#tablaUsuarios td{
+	font-size: 150%;
+	padding-top: 3%;
+}
+
+
+/*
+ * Logo
+ */
+#logo-header {
+	float: left;
+	padding: 15px 0 0 20px;
+	text-decoration: none;
+}
+
+	#logo-header .site-name {
+		display: block;
+		font-weight: 700;
+		font-size: 1.2em;
+	}
+
+
+/*
+ * Navegación
+ */
+nav {
+	float: right;
+}
+
+nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	padding-right: 20px;
+}
+
+nav ul li {
+	display: inline-block;
+	line-height: 80px;
+}
+
+nav ul li a {
+	display: block;
+	padding: 0 10px;
+	text-decoration: none;
+}
+
+nav ul li a:hover {
+	background: #F57C00;
+	color: white;
+
+}
+
+#main-content {
+	background: white;
+	width: 90%;
+	height: auto;
+	margin: 5% auto;
+	box-shadow: 0 0 10px rgba(0,0,0,.1);
+}
+
+#main-content header,
+#main-content .content {
+	padding: 40px;
+}
+
+#tablaUsuarios{
+	margin-left: 3%;
+	width: auto;
+	margin-right: 3%;
+}
+
+
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Helvetica, Arial, sans-serif;
+	color: #666;
+	background: #FFA726;
+	font-size: 1em;
+	line-height: 1.5em;
+}
+
+
+h1 {
+	font-size: 250%;
+	line-height: 1.3em;
+	text-align: center;
+	font-weight: 300;
+}
+
+p {
+	margin: 0 0 1.5em 0;
+}
+
+
+#main-header {
+	background: #1E88E5;
+	color: white;
+	height: 80px;
+	width: 100%;
+}
+	#main-header a {
+		color: white;
+	}
+
+/*
+ * Logo
+ */
+#logo-header {
+	float: left;
+	padding: 15px 0 0 20px;
+	text-decoration: none;
+}
+
+	#logo-header .site-name {
+		display: block;
+		font-weight: 700;
+		font-size: 1.2em;
+	}
+
+
+/*
+ * Navegación
+ */
+nav {
+	float: right;
+}
+
+nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	padding-right: 20px;
+}
+
+nav ul li {
+	display: inline-block;
+	line-height: 80px;
+}
+
+nav ul li a {
+	display: block;
+	padding: 0 10px;
+	text-decoration: none;
+
+}
+
+nav ul li a:hover {
+	background: #F57C00;
+	color: white;
+
+}
+
+#main-content {
+	background: white;
+	width: 90%;
+	height: auto;
+	margin: 5% auto;
+	box-shadow: 0 0 10px rgba(0,0,0,.1);
+}
+
+#main-content header,
+#main-content .content {
+	padding: 40px;
+}
+
+#actualizar{
+	margin-top: 5%;
+}
+
+article{
+	text-align: center;
+	padding: 5% ;
+}
+
+article header{
+	margin-top: -5%;
+}
+
+section ul{
+	margin-top: -5%;
+}
+
+section ul li:nth-child(odd){
+	background-color:#1E88E5;
+	color: white;
+}
+
+section ul li:nth-child(even) label{
+	color: black;
+}
+
+section ul li{
+	border-radius: 10px;
+	list-style: none;
+}
+
+section ul li{
+	font-size: 150%;
+	padding: 10px;
+	height: 80px;
+}
+
+
+section ul li label{
+	width: 50% auto;
+	padding: 5%;
+	margin-top: 15px;
+}
+
+#pArriba{
+	margin-top: -9%;
+	padding-left: 18%;
+	margin-bottom: 0%;
+}
+
+section ul li button{
+	font-size: 100%;
+    border: none;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+	float: right;
+	margin-top: 60%;
+	margin-right: -180%;
+	width: 150%;
+	-webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    background-color: white;
+    border-color: orange;
+    border-radius: 5px;
+
+}
+
+section ul li button:hover{
+	margin-left: 5%;
+	margin-top: 50%;
+	font-size: 110%;
+	margin-left: 130%;
+    background-color: #EF6C00;
+    color: white;
+}
+
+.descripcion{
+	clear: both;
+}
+
+.nomFe{
+	width: 100%;
+	float: left;
+	height: auto;
+	color: white;
+	margin-top: -6%;
+	margin-left: -40%;
+}
+
+.btDer{
+	margin-top: -2.4%;
+	float: right;
+}
+
+
+
+.cooo{
+	width: 80%;
+}
+
+section article p{
+	margin-left: 3%;
+	margin-top: -5%;
+	margin-bottom: 5%;
+	font-size: 120%;
+	text-align: justify;
+}
+/**
+*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*
+<!--Para hacer responsibo el diseño de la pantalla-->
+*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*	*
+*/
+
+
+@media screen and (max-width: 990px){
+
+
+
+	 #op2, #op3{
+		display: none;
+	}
+
+	body header a{
+		margin-left: 30% auto;
+		margin-right: 30% auto;
+		font-size: auto;
+	}
+
+	#pArriba{
+		margin-left: 20%;
+		margin-right: -20%;
+		padding-right: 0%;
+	}
+	#derecha{
+		margin-left: 20%;
+	}
+
+
+
+
+}
+
+
+
+
+@media screen and (max-width: 800px){
+
+
+	section ul li button{
+	font-size: 100%;
+    border: none;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+	float: right;
+	margin-top: 60%;
+	margin-right: -130%;
+	width: 150%;
+	-webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    background-color: white;
+    border-color: orange;
+    border-radius: 5px;
+
+}
+
+section ul li button:hover{
+	margin-left: 5%;
+	margin-top: 50%;
+	font-size: 110%;
+
+    background-color: #EF6C00;
+    color: white;
+}
+
+}
+
+
+
+/*-----------------------------------------------------------------------------------------------------------------*/
+
+
+@media screen and (max-width: 500px){
+
+	section ul li button{
+		margin-right: -120%;
+		margin-top: -8%;
+	}
+
+	section ul li button:hover{
+		margin-left: 0%;
+		margin-top: -8%;
+		margin-right: -120%;
+   		background-color: orange;
+   		font-size: 90%;
+    	color: white;
+    	margin-right: -105%;
+	}
+
+
+	section ul li{
+		height: 50px;
+	}
+
+	h1{
+		font-size: 130%;
+	}
+
+	ul{
+		margin-left: -10%;
+	}
+
+	li div div label{
+		font-size: 100%;
+	}
+
+}
+
+.ocultoCasiSiempreU{
+	display: none;
+}
+
+
+@media screen and (min-width: 992px){
+
+	.derecha{
+		margin-left: 28%;
+	}
+
+	#derecha{
+		margin-left: 20%;
+	}
+
+}
+
+@media screen and (min-width: 1616px){
+
+	.derecha{
+		margin-left: 28%;
+	}
+
+	#derecha{
+		margin-left: 20%;
+	}
+
+	//ademas debo de arreglar que no se bajen los registros ni los botones
+
+	.cooo{
+		margin:0%;
+		padding-top: 15px;
+	}
+
+	#derecha{
+		margin-top: 0%;
+
+	}
+}
+
+@media screen and (max-width: 1000px){
+
+	header{
+		font-size: 130%;
+	}
+
+	header nav ul{
+		font-size: 100%;
+	}
+
+	.ocultoCasiSiempreU{
+		display: inline;
+	}
+
+	.desocultoCasiSiempreU{
+		display: none;
+	}
+
+	#tablaUsuarios {
+	margin-left: 10%;
+	width: 80%;
+	margin-left: 10%;
+	}
+
+	.descListaU{
+		display: none;
+	}
+
+	#tablaUsuarios th{
+	font-size: 150%;
+
+	}
+
+	#tablaUsuarios tr td{
+	height: 100px;
+
+	}
+
+	.correoBye{
+		display: none;
+	}
+}
+
+.registro_1
+{
+		position: relative;
+    background-image: url('F-01.png');
+		width: 1005px;
+	  height: 921px;
+		background-size: 1005px 921px;
+		background-repeat: no-repeat;
+		right: -270px;
+}
+
+.servicio_reg
+{
+	 position: relative;
+	 width: 1105px;
+	 height: 666px;
+	 background-image: url('F_02.png');
+	 background-size: 1105px 666px;
+	 background-repeat: no-repeat;
+	 right: -215px;
+}
+
+.submit_registro
+{
+		position: relative;
+		width: 226px;
+	  height: 78px;
+    background-image: url('B_02-3.png');
+		background-size: 226px 78px;
+		background-repeat: no-repeat;
+		right: -70px;
+		top: 76px;
+}
+
+#back_btn
+{
+	position: relative;
+  background-image: url("B-04-02-0.png");
+  height: 196px;
+  width: 242px;
+	background-size: 226px 78px;
+  background-repeat: no-repeat;
+	right: -210px;
+	top: 80px;
+}
+
+#reference_btn
+{
+
+	position:relative;
+  background-image: url("B_02-1.png");
+  height: 78px;
+  width: 486px;
+	background-size: 486px 78px;
+  background-repeat: no-repeat;
+	right: -65px;
+	top: 80px;
+}
+
+.textfield_img
+{
+  width: 681px;
+  height: 78px;
+  background-image: url("B_01-8.png");
+  background-size: 681px 78px;
+  background-repeat: no-repeat;
+  font-style: normal;
+  font-family: Futura;
+  font-size: 40px;
+  font-weight: 500;
+  font-variant: normal;
+  line-height: 30px;
+}
+
+.radio_btn_uncheck_b
+{
+	position: relative;
+	width: 66px;
+	height: 51px;
+	background-image: url('B-02-04-0.png');
+	background-size: 66px 51px;
+	background-repeat: no-repeat;
+	left: -150px;
+	bottom: 55px;
+}
+
+.radio_btn_uncheck_o
+{
+	position: relative;
+	width: 66px;
+	height: 51px;
+	background-image: url('B-02-04-0.png');
+	background-size: 66px 51px;
+	background-repeat: no-repeat;
+	left: -150px;
+	bottom: 15px;
+}
+
+.radio_btn_uncheck_v
+{
+	position: relative;
+	width: 66px;
+	height: 51px;
+	background-image: url('B-02-04-0.png');
+	background-size: 66px 51px;
+	background-repeat: no-repeat;
+	left: -150px;
+	bottom: -25px;
+}
+
+.vendedor_lab
+{
+	position: relative;
+	width: 326px;
+	height: 48px;
+	background-image: url('B-02-6.png');
+	background-size: 326px 48px;
+	background-repeat: no-repeat;
+	bottom: -30px;
+	right:80px;
+}
+
+.ofrezco_lab
+{
+	position: relative;
+	width: 526px;
+	height: 48px;
+	background-image: url('B-02-5.png');
+	background-size: 526px 48px;
+	background-repeat: no-repeat;
+	bottom: 10px;
+	left:-85px;
+}
+
+.busco_lab
+{
+	position: relative;
+	width: 526px;
+	height: 46px;
+	background-image: url('B-02-4.png');
+	background-size: 526px 46px;
+	background-repeat: no-repeat;
+	bottom: 50px;
+	left:-82px;
+}
+
+.tambien_puedes
+{
+		position: relative;
+    background-image: url('B-01-3.png');
+		width: 250px;
+	  height: 50px;
+		background-size: 250px 50px;
+		left: 380px;
+		top: -100px;
+		background-repeat: no-repeat;
+
+}
+
+#facebooks
+{
+	position: relative;
+  background-image: url("B-01-1.png");
+  height: 78px;
+  width: 362px;
+	background-size: 362px 78px;
+  background-repeat: no-repeat;
+	left: 70px;
+	bottom:80px;
+}
+
+#googles
+{
+	position: relative;
+  background-image: url("B-01-2.png");
+  height: 78px;
+  width: 362px;
+	background-size: 362px 78px;
+  background-repeat: no-repeat;
+	left: 50px;
+	bottom:80px;
+}
+
+.referencia_sig
+{
+		position: relative;
+		width: 226px;
+	  height: 78px;
+    background-image: url('B_02-3.png');
+		background-size: 226px 78px;
+		background-repeat: no-repeat;
+		left: 570px;
+		top: 70px;
+}
+
+.textfield_ref
+{
+  width: 681px;
+  height: 78px;
+  background-image: url("B_01-8.png");
+  background-size: 681px 78px;
+  background-repeat: no-repeat;
+  font-style: normal;
+  font-family: Futura;
+  font-size: 40px;
+  font-weight: 500;
+  font-variant: normal;
+  line-height: 30px;
+}

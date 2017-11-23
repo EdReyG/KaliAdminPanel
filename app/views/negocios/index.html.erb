@@ -1,0 +1,183 @@
+<style>
+
+@media screen and (max-width: 1200px){
+
+  #derecha{
+    margin-left: 20%;
+    width: 100%;
+  }
+
+  #btIr{
+    margin-right: -35%;
+    margin-top: 45%;
+  }
+
+}
+
+@media screen and (min-width: 1200px){
+
+
+  #derecha{
+    margin-left: 10%;
+    width: 100%;
+  }
+
+  //ajustar el boton de ver la empresa
+
+  #btIr{
+    margin-right: 50%;
+  }
+}
+
+
+@media screen and (min-width: 1500px){
+
+
+  #derecha{
+    margin-left: 10%;
+    width: 100%;
+  }
+}
+
+.amarillo{
+
+  font-weight: bold;
+  //background: yellow;
+  font-size: 100%;
+  float:right;
+  clear: right;
+}
+
+.rojo{
+  font-weight: bold;
+  //background: red;
+  font-size: 100%;
+  float:right;
+  clear: right;
+}
+
+h1{
+  clear: both;
+}
+
+
+@media screen and (max-width: 800px){
+
+  .amarillo{
+    float: left;
+    margin-left: -8%;
+  }
+
+  .rojo{
+    margin-bottom: 15%;
+    clear: none;
+    margin-right: -8%;
+  }
+
+  .op3{
+    display: none;
+  }
+
+
+}
+
+#btIr{
+  padding: 0%;
+  margin:0%;
+}
+
+h1{
+  clear: both;
+}
+
+
+
+#nombre{
+    margin-left: 8%;
+}
+
+ul li span{
+  float: left;
+  margin-top: 1.5%;
+}
+
+#correo{
+  margin-left: 10%;
+}
+
+#btIr{
+  width: 15%;
+  margin-top: 1%;
+}
+
+@media screen and (max-width: 800px){
+
+#btIr{ float: right;
+  margin-top: 3%;
+  width: 30%;
+
+}
+
+.nuevo{
+
+  border-radius: 5px;
+
+}
+}
+
+.nuevo{
+  font-weight: bold;
+  font-size: 120%;
+  margin-left: 40%;
+  margin-right: 40%;
+  width: 20%;
+  margin-bottom: 3%;
+  color: orange;
+  background-color: orange;
+  text-align: center;
+}
+
+</style>
+
+  <header id="main-header">
+
+    <a id="logo-header" class="ocultar" >
+      <span class="site-name">Negocios Registrados</span>
+      <span class="site-desc">Lista (por nombre del negocio)</span>
+    </a> <!-- / #logo-header -->
+
+    <nav>
+      <ul>
+        <li id = "op4"><a><%= link_to "Usuarios", :controller => "users", :action => "index" %></a></li>
+      
+        <li id = "op3"><a><%= link_to "Inicio", :controller => "inicio", :action => "opciones" %></a></li>
+      </ul>
+    </nav><!-- / nav -->
+
+  </header>
+
+    <article id = "primer">
+      <header>
+        <div>
+
+        </div>
+        <h1>NEGOCIOS VERIFICADOS ACTIVOS</h1>
+      </header>
+      <br><br><br><br>
+
+        <ul>
+          <% @negocios.each do |negocio| %>
+          <li>
+            <span id = "nombre">Negocio: <%=negocio.nombre_empresa%></span>
+            <span id = "correo">Dueño: <%= negocio.usuario.nombre_usuario %> <%= negocio.usuario.apellidos %></span>
+            <button id = "btIr">
+                    <%= link_to 'Ver Perfil', negocio %>
+            </button>
+          </li>
+          <% end %>
+        </ul>
+    </article> <!-- /article -->
+
+</section>
+
+<label class = "nuevo"><%= link_to 'Nuevo Negocio', new_negocio_path ,:class => "naranja"%></label>

@@ -80,12 +80,12 @@ class NegociosController < ApplicationController
   # GET /negocios/new
   def new
     @negocio = Negocio.new
-    @lng = negocio_params[:longitud]
-    @lat = negocio_params[:latitud]
+
   end
 
   # GET /negocios/1/edit
   def edit
+
   end
 
   # POST /negocios
@@ -95,14 +95,7 @@ class NegociosController < ApplicationController
 
     respond_to do |format|
       if @negocio.save
-        @categoria_neg = $cat_temporal
-        @negocio_cat = Negocio.where("usuario_id=?", negocio_params[:usuario_id]).where("nombre_empresa=?", negocio_params[:nombre_empresa])
-        @negocio_cat.each do |neg|
 
-          @categoria_neg.each do |cat|
-            NegociosCategorias.create(:categoria_id => cat.id , :negocio_id => neg.id)
-          end
-        end
         format.html { redirect_to @negocio, notice: 'Negocio was successfully created.' }
         format.json { render :show, status: :created, location: @negocio }
       else

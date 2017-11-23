@@ -1,0 +1,109 @@
+<%= form_with(model: negocio, local: true) do |form| %>
+  <% if negocio.errors.any? %>
+     <div id="error_explanation">
+       <h2><%= pluralize(negocio.errors.count, "error") %> prohibited this negocio from being saved:</h2>
+
+       <ul>
+       <% negocio.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+   <% end %>
+
+  <div class="field">
+    <%= form.label :nombre_empresa %>
+    <%= form.text_field :nombre_empresa, id: :negocio_nombre_empresa %>
+  </div>
+
+  <div class="field">
+    <%= form.label :latitud %>
+    <%= form.text_field :latitud, id: :negocio_latitud %>
+  </div>
+
+  <div class="field">
+    <%= form.label :longitud %>
+    <%= form.text_field :longitud, id: :negocio_longitud %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Verificado "%>
+    <br>
+    <label>Escriba:</label>
+    <label>1 si ACEPTA  los datos</label>
+    <label>-1 si desea dar de BAJA</label>
+
+    <%= form.number_field :verificado, id: :negocio_verificado %>
+  </div>
+
+  <div class="field">
+    <%= form.label :precio_promedio %>
+    <%= form.number_field :precio_promedio, id: :negocio_precio_promedio %>
+  </div>
+
+  <div class="field">
+    <% form.label :rating_precio, class: 'oculto-casi' %>
+    <% form.text_field :rating_precio, {id: :negocio_rating_precio, class: 'oculto-casi'} %>
+  </div>
+
+  <div class="field">
+    <% form.label :rating_calidad, class: 'oculto-casi' %>
+    <% form.text_field :rating_calidad, {id: :negocio_rating_calidad, class: 'oculto-casi'} %>
+  </div>
+
+  <div class="field">
+    <% form.label :imagen, class: 'oculto-casi sieO'%>
+    <% form.text_field :imagen, {id: :negocio_imagen, class: 'oculto-casi sieO'} %>
+  </div>
+
+  <div class="field">
+    <% form.label :negocio_cantidad_rating, class: 'oculto-casi' %>
+    <% form.number_field :cantidad_rating, {id: :negocio_cantidad_rating, class: 'oculto-casi'} %>
+  </div>
+
+  <div class="field">
+    <% form.label :negocio_cantidad_precio, class: 'oculto-casi' %>
+    <% form.number_field :cantidad_precio, {id: :negocio_cantidad_precio, class: 'oculto-casi'} %>
+  </div>
+
+  <div class="field dentrito">
+    <%= form.label :ultima_conexion %>
+    <%= form.datetime_select :ultima_conexion, id: :negocio_ultima_conexion %>
+  </div>
+
+  <div class="field dentrito">
+    <%= form.label :fecha_registro %>
+    <%= form.datetime_select :fecha_registro, id: :negocio_fecha_registro %>
+  </div>
+
+  <div class="field mem">
+    <%= form.label :usuario_id%>
+
+    
+  </div>
+
+<div class="field">
+    <% form.label :veces_visto %>
+    <% form.number_field :veces_visto, {id: :negocio_veces_visto} %>
+  </div>
+
+  <div class="field mem">
+    <%= form.label :membresia_id%>
+    <%=form.collection_select(:membresia_id, Membresium.all, :id,:nombre_membresia, prompt: "Selecciona la membresia que decidas", class: 'grande_l') %>
+  </div>
+
+  <div class="field">
+    <% form.label :telefono %>
+    <label>Teléfono del negocio</label>
+    <%= form.text_field :telefono, {id: :negocio_telefono} %>
+  </div>
+
+  <div class="field">
+    <%= form.label :descripcion %>
+    <%= form.text_field :descripcion, {id: :negocio_descripcion} %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit("ACEPTAR") %>
+  </div>
+<% end %>

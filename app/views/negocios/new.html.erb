@@ -1,0 +1,75 @@
+<style>
+
+.fBlanco{
+	background: white;
+}
+
+
+.naranja1{
+  color:orange;
+  text-align: center;
+  font-size: 400%;
+
+}
+
+.centrado{
+	width: 100%;
+	padding: 10%;
+	padding-top: 0%;
+	font-size: 140%;
+}
+
+.centrado label{
+	color: #1E88E5;
+}
+
+.centrado input{
+	margin: 1%;
+	font-size: 130%;
+	width: 50%;
+}
+
+
+.miClase{
+	color:red;
+}
+
+.sieO{
+	display: none;
+}
+
+.dentro select{
+	background-color: white;
+	font-size: 140%;
+}
+
+.dentrito select{
+	background-color: white;
+	font-size: 100%;
+}
+
+.mem select{
+	background-color: #FFF3E0;
+	font-size: 140%;
+}
+
+</style>
+
+
+
+<body class = "fBlanco">
+
+
+<h1 class = "naranja1">Nuevo Negocio</h1>
+
+<section class ="centrado">
+
+<%= render 'form', negocio: @negocio %>
+
+<label>** En el campo de Usuario, escriba el id **</label>
+<br>
+<%= link_to 'Regresar', negocios_path %>
+
+</section>
+
+</body>

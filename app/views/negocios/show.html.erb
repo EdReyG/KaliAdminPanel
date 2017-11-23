@@ -1,0 +1,252 @@
+<!--
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre empresa:</strong>
+  <%= @negocio.nombre_empresa %>
+</p>
+
+<p>
+  <strong>Latitud:</strong>
+  <%= @negocio.latitud %>
+</p>
+
+<p>
+  <strong>Longitud:</strong>
+  <%= @negocio.longitud %>
+</p>
+
+<p>
+  <strong>Verificado:</strong>
+  <%= @negocio.verificado %>
+</p>
+
+<p>
+  <strong>Precio promdedio:</strong>
+  <%= @negocio.precio_promedio %>
+</p>
+
+<p>
+  <strong>Rating precio:</strong>
+  <%= @negocio.rating_precio %>
+</p>
+
+<p>
+  <strong>Rating calidad:</strong>
+  <%= @negocio.rating_calidad %>
+</p>
+
+<p>
+  <strong>Imagen:</strong>
+  <%= @negocio.imagen %>
+</p>
+
+<p>
+  <strong>Cantidad rating:</strong>
+  <%= @negocio.cantidad_rating %>
+</p>
+
+<p>
+  <strong>Cantidad precio:</strong>
+  <%= @negocio.cantidad_precio %>
+</p>
+
+<p>
+  <strong>Ultima conexion:</strong>
+  <%= @negocio.ultima_conexion %>
+</p>
+
+<p>
+  <strong>Fecha registro:</strong>
+  <%= @negocio.fecha_registro %>
+</p>
+
+<p>
+  <strong>Usuario:</strong>
+
+</p>
+<%= link_to 'Edit', edit_negocio_path(@negocio) %> |
+<%= link_to 'Back', negocios_path %>
+-->
+<style>
+
+#mapa{
+    width: 100%;
+    height: 500px;
+  }
+
+@media screen and (max-width: 700px){
+  #mapa{
+    width: 80%;
+    height: 300px;
+    margin: 10%;
+    margin-top: 100%;
+  }
+
+  .ocultito{
+    display: inline-block;
+  }
+
+}
+
+#fBlanco{
+  background-color: white;
+  text-align: center;
+}
+
+.naranja{
+  color: orange;
+  font-weight: bold;
+
+}
+
+.arribita{
+  margin-top:-5%;
+  padding-top: 0%;
+}
+
+.arribita2{
+  margin-top: 1%;
+  padding-top: 10%;
+}
+
+.etiquetas{
+  font-size: 150%;
+  float: left;
+  clear: left;
+  text-align: left;
+  margin-bottom: 2%;
+}
+
+.cajita{
+  margin-left: 10%;
+  width: 90%;
+  background-color: #FFCC80;
+  padding: 0.5%;
+}
+
+#otraCajita{
+  width: 100%;
+  text-align: center;
+}
+
+.ocultito{
+  display: none;
+}
+
+.siempreOculto{
+  display: none;
+}
+
+.naranjaF{
+  font-weight: bold;
+  font-color: orange;
+  font-size: 150%;
+  margin: 15px;
+}
+
+
+</style>
+<body id = "fBlanco">
+  <header id="main-header">
+
+    <a id="logo-header" class="ocultar" >
+      <span class="site-name">Negocios</span>
+      <span class="site-desc"><%= @negocio.nombre_empresa %></span>
+
+    </a> <!-- / #logo-header -->
+
+    <nav>
+      <ul>
+
+      <%if @negocio.verificado ==1 %>
+        <li id = "op4"><a><%= link_to "Regresar", :controller => "negocios", :action => "index" %></a></li>
+      <%else%>
+        <%if @negocio.verificado ==0 %>
+            <li id = "op4"><a><%= link_to "Regresar", :controller => "pendientes", :action => "index" %></a></li>
+          <%else%>
+              <li id = "op4"><a><%= link_to "Regresar", :controller => "rechazados", :action => "negocios" %></a></li>
+          <%end%>
+      <%end%>
+
+      </ul>
+    </nav><!-- / nav -->
+
+  </header><!-- / #main-header -->
+
+<!--Aqui pongo los atributos-->
+
+<section id = "nuevoUsuario" class = "arribita">
+  <article>
+  <h1 class="naranja" >Datos del Negocio</h1>
+
+  <div class = "cuerpoUsuario">
+
+    <div id = "datosUsuario">
+
+      <%begin%>
+  <!--Aqui pongo el despliegue de la foto-->
+  <!--Se logra gracias a lo que esta en el controlador-->
+    <img src="/<%=@negocio.imagen%>" width="50px">
+    <br>
+  <%rescue%>
+  <%end%>
+
+      <label class = "etiquetas">Nombre del negocio</label>
+      <a class = "etiquetas cajita"><%= @negocio.nombre_empresa %></a>
+
+      <label class = "etiquetas">Descripcion</label>
+      <a class = "etiquetas cajita"><%= @negocio.descripcion %></a>
+
+      <label class = "etiquetas">Teléfono del negocio</label>
+      <a class = "etiquetas cajita"><%= @negocio.telefono %></a>
+
+      <label class = "etiquetas">Propietario del Negocio</label>
+      <a class = "etiquetas cajita"><%= @negocio.usuario.nombre_usuario%>
+        <%= @negocio.usuario.apellidos%>
+      </a>
+
+      <label class = "etiquetas">Teléfono del propietario</label>
+      <a class = "etiquetas cajita"><%= @negocio.usuario.celular%></a>
+
+      <label class = "etiquetas">Membresia</label>
+      <a class = "etiquetas cajita"><%= Membresium.find(@negocio.membresia_id).nombre_membresia%></a>
+
+      <label class = "etiquetas">Veces que ha sido visto</label>
+      <a class = "etiquetas cajita"><%= @negocio.veces_visto%></a>
+
+      <label class = "etiquetas">Precio promedio</label>
+      <a class = "etiquetas cajita"><%= @negocio.precio_promedio %></a>
+
+      <label class = "etiquetas">Rating del precio</label>
+      <a class = "etiquetas cajita"><%= @negocio.rating_precio %></a>
+
+      <label class = "etiquetas">Rating calidad</label>
+      <a class = "etiquetas cajita"><%= @negocio.rating_calidad %></a>
+
+      <label class = "etiquetas">Ultima conexion</label>
+      <a class = "etiquetas cajita"><%= @negocio.ultima_conexion %></a>
+
+      <label class = "etiquetas">Fecha de registro</label>
+      <a class = "etiquetas cajita"><%= @negocio.fecha_registro %></a>
+
+  </div>
+  </article>
+
+</section>
+<section>
+<div id = "otraCajita">
+  <h1 class = "naranja arribita2 ocultito">Localización</h1>
+  <div id = "mapa"><%= @negocio.latitud %></div>
+  <div id = "mapa1" class="siempreOculto"><%= @negocio.longitud %></div>
+</div>
+</section>
+<label class = "naranjaF">
+<%= link_to 'Editar / Aceptar / Baja', edit_negocio_path(@negocio) %>
+</label>
+
+
+
+
+</body>

@@ -1,0 +1,221 @@
+<style>
+
+section ul li:nth-child(odd){
+  background-color:yellow;
+  color: gray;
+}
+
+.nomFe{
+  color: black;
+}
+
+.rojo{
+ float: right;
+}
+
+@media screen and (max-width: 900px){
+  .ocultar{
+    display: none;
+  }
+}
+
+  .amarillo{
+
+  font-weight: bold;
+  //background: yellow;
+  font-size: 100%;
+  float:right;
+  clear: right;
+}
+
+.rojo{
+  font-weight: bold;
+  //background: red;
+  font-size: 100%;
+  float:right;
+  clear: right;
+}
+
+#pArriba{
+  margin-top: -20%
+}
+
+.ocultar{
+margin-top:-20%;
+margin: 0%
+}
+
+#elem{
+  margin-top: -5%;
+  margin-left: -15%;
+}
+
+#btIr{
+  padding: 0%;
+  margin:0%;
+}
+
+h1{
+  clear: both;
+}
+
+
+
+#nombre{
+    margin-left: 8%;
+}
+
+ul li span{
+  float: left;
+  margin-top: 1.5%;
+}
+
+#correo{
+  margin-left: 10%;
+}
+
+#btIr{
+  width: 15%;
+  margin-top: 1%;
+}
+
+@media screen and (max-width: 800px){
+
+#btIr{ float: right;
+  margin-top: 3%;
+  width: 30%;
+
+}
+
+.nuevo{
+
+  border-radius: 5px;
+
+}
+}
+
+.nuevo{
+  font-weight: bold;
+  font-size: 120%;
+  margin-left: 40%;
+  margin-right: 40%;
+  width: 20%;
+  margin-bottom: 3%;
+  color: orange;
+  background-color: orange;
+  text-align: center;
+}
+
+.naranja{
+  color: orange;
+}
+
+</style>
+
+<header id="main-header">
+
+    <a id="logo-header" class="ocultar" >
+      <span class="site-name oculta">SOLICITUDES PENDIENTES</span>
+      <span class="site-desc"></span>
+    </a> <!-- / #logo-header -->
+
+    <nav>
+      <ul>
+
+        <li id = "op4"><a><%= link_to "Usuarios", :controller => "usuarios", :action => "index" %></a></li>
+        <li id = "op4"><a><%= link_to "Negocios", :controller => "negocios", :action => "index" %></a></li>
+        <li id = "op4"><a><%= link_to "Promociones", :controller => "promocions", :action => "index" %></a></li>
+        <li id = "op4"><a><%= link_to "Inicio", :controller => "inicio", :action => "opciones" %></a></li>
+      </ul>
+    </nav><!-- / nav -->
+
+  </header><!-- / #main-header -->
+
+
+<section id="main-content">
+
+
+    <article id = "primer">
+      <header>
+      <div>
+        </div>
+        <h1 class>NEGOCIOS PENDIENTES</h1>
+      </header>
+      <br><br><br>
+
+      <%if @negocios.length >0%>
+
+        <ul>
+          <% @negocios.each do |negocio| %>
+          <li>
+            <span id = "nombre"><%=negocio.nombre_empresa%></span>
+            <span id = "correo">Propietario: <%= negocio.usuario.nombre_usuario %> <%= negocio.usuario.apellidos %></span>
+            <button id = "btIr">
+                    <%= link_to 'Ver Perfil', negocio %>
+            </button>
+
+          </li>
+          <% end %>
+        </ul>
+
+        <%else%>
+              <h1>No hay negocios con solicitudes pendientes...</h1>
+        <%end%>
+    </article> <!-- /article -->
+
+</section>
+
+<section id="main-content">
+    <article id = "primer">
+      <header>
+      <div>
+        </div>
+        <h1>PROMOCIONES PENDIENTES</h1>
+      </header>
+      <br><br><br>
+    <%if @promociones.length >0%>
+        <ul>
+          <% @promociones.each do |promocion| %>
+          <li>
+            <span id = "nombre"><%=promocion.nombre%> </span>
+            <span id = "correo">Negocio: <%= promocion.negocio.nombre_empresa %></span>
+            <button id = "btIr">
+                    <%= link_to 'Ver Promocion', promocion %>
+            </button>
+          </li>
+          <% end %>
+        </ul>
+        <%else%>
+              <h1>No hay promociones con solicitudes pendientes...</h1>
+        <%end%>
+    </article> <!-- /article -->
+
+</section>
+
+<section id="main-content">
+    <article id = "primer">
+      <header>
+      <div>
+      <%=link_to "Actualizaciones rechazadas", {controller: "rechazados", action: "actualizaciones"}, class: "rojo"%>
+        </div>
+        <h1>ACTUALIZACIONES PENDIENTES</h1>
+      </header>
+      <br><br><br>
+    <%if @actualizaciones.length >0%>
+      <ul>
+          <% @actualizaciones.each do |actualizacion| %>
+          <li>
+            <span id = "nombre">Negocio: <%=Negocio.find(actualizacion.negocio.id).nombre_empresa%></span>
+
+            <button id = "btIr">
+                    <%= link_to 'Ver Perfil', actualizacion %>
+            </button>
+          </li>
+          <% end %>
+        </ul>
+        <%else%>
+              <h1>No hay actualizaciones de negocios pendientes...</h1>
+        <%end%>
+    </article> <!-- /article -->
+
+</section>
