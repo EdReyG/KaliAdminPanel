@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  negocio_id: 1
+  hora_inicio: 2017-11-22 10:51:54
+  hora_fin: 2017-11-22 10:51:54
+  dia: 1
+
+two:
+  negocio_id: 1
+  hora_inicio: 2017-11-22 10:51:54
+  hora_fin: 2017-11-22 10:51:54
+  dia: 1

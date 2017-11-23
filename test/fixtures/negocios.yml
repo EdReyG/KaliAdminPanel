@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre_empresa: MyString
+  latitud: 1.5
+  longitud: 1.5
+  verificado: 1
+  precio_promedio: 1
+  rating_precio: 1.5
+  rating_calidad: 1.5
+  imagen: MyText
+  cantidad_rating: 1
+  cantidad_precio: 1
+  ultima_conexion: 2017-11-22 10:59:40
+  fecha_registro: 2017-11-22 10:59:40
+  descripcion: MyString
+  telefono: MyString
+  user_id: 1
+  veces_visto: 1
+
+two:
+  nombre_empresa: MyString
+  latitud: 1.5
+  longitud: 1.5
+  verificado: 1
+  precio_promedio: 1
+  rating_precio: 1.5
+  rating_calidad: 1.5
+  imagen: MyText
+  cantidad_rating: 1
+  cantidad_precio: 1
+  ultima_conexion: 2017-11-22 10:59:40
+  fecha_registro: 2017-11-22 10:59:40
+  descripcion: MyString
+  telefono: MyString
+  user_id: 1
+  veces_visto: 1
