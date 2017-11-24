@@ -75,21 +75,22 @@
     <%= form.label :fecha_registro %>
     <%= form.datetime_select :fecha_registro, id: :negocio_fecha_registro %>
   </div>
-
+<br />
   <div class="field mem">
-    <%= form.label :usuario_id%>
+      <%= form.label :usuario_id%>
 
-    
-  </div>
+      <%=form.collection_select(:user_id, User.all, :id,:name_with_initial, prompt: "Selecciona al usuario que decidas", class: 'grande_l') %>
+
+    </div>
 
 <div class="field">
     <% form.label :veces_visto %>
     <% form.number_field :veces_visto, {id: :negocio_veces_visto} %>
   </div>
-
+<br />
   <div class="field mem">
     <%= form.label :membresia_id%>
-    <%=form.collection_select(:membresia_id, Membresium.all, :id,:nombre_membresia, prompt: "Selecciona la membresia que decidas", class: 'grande_l') %>
+    <%=form.collection_select(:membresia_id, Membresium.all, :id,:nombre, prompt: "Selecciona la membresia que decidas", class: 'grande_l') %>
   </div>
 
   <div class="field">

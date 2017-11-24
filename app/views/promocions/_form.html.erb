@@ -1,0 +1,40 @@
+<%= form_with(model: promocion, local: true) do |form| %>
+  <% if promocion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(promocion.errors.count, "error") %> prohibited this promocion from being saved:</h2>
+
+      <ul>
+      <% promocion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :Titulo %>
+    <%= form.text_field :promocion, id: :promocion_promocion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :descripcion %>
+    <%= form.text_field :descripcion, id: :promocion_descripcion %>
+  </div>
+
+
+  <div class="field">
+    <% form.label :poster , class: 'oculto-casi'%>
+    <% form.text_field :poster, {id: :promocion_poster, class: 'oculto-casi'}%>
+  </div>
+
+
+  <div class="hidden">
+    <%= form.label :negocio_id %>
+
+    <%=form.text_field :negocio_id,  :value => $id_negocio4promo %>
+
+  </div>
+  <div class="actions">
+    <%= form.submit("Aceptar") %>
+  </div>
+<% end %>

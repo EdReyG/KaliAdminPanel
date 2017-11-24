@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  metros_alcance: 1
+  descripcion: MyString
+  precio: 1.5
+
+two:
+  nombre: MyString
+  metros_alcance: 1
+  descripcion: MyString
+  precio: 1.5

@@ -124,11 +124,11 @@ ul li span{
         <ul>
           <% @usuarios.each do |usuario| %>
           <li>
-
-            <span id = "nombre"><%=user.apellidos%>, <%=user.nombre_usuario%> </span>
-            <span id = "correo"><%=user.correo%></span>
+            <%puts usuario.id%>
+            <span id = "nombre"><%=usuario.apellidos%>  <%=usuario.name%> </span>
+            <span id = "correo">Correo: <%=usuario.email%></span>
             <button id = "btIr">
-                    <%= link_to 'Ver Perfil', user %>
+
             </button>
 
           </li>

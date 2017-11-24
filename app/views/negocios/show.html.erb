@@ -203,15 +203,15 @@
       <a class = "etiquetas cajita"><%= @negocio.telefono %></a>
 
       <label class = "etiquetas">Propietario del Negocio</label>
-      <a class = "etiquetas cajita"><%= @negocio.usuario.nombre_usuario%>
-        <%= @negocio.usuario.apellidos%>
+      <a class = "etiquetas cajita"><%= @negocio.user.name%>
+        <%= @negocio.user.apellidos%>
       </a>
 
       <label class = "etiquetas">Teléfono del propietario</label>
-      <a class = "etiquetas cajita"><%= @negocio.usuario.celular%></a>
+      <a class = "etiquetas cajita"><%= @negocio.user.celular%></a>
 
       <label class = "etiquetas">Membresia</label>
-      <a class = "etiquetas cajita"><%= Membresium.find(@negocio.membresia_id).nombre_membresia%></a>
+      <a class = "etiquetas cajita"><%= Membresium.find(@negocio.membresia_id).nombre%></a>
 
       <label class = "etiquetas">Veces que ha sido visto</label>
       <a class = "etiquetas cajita"><%= @negocio.veces_visto%></a>

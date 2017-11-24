@@ -139,6 +139,8 @@ ul li span{
 
 </style>
 
+<section>
+
   <header id="main-header">
 
     <a id="logo-header" class="ocultar" >
@@ -149,7 +151,7 @@ ul li span{
     <nav>
       <ul>
         <li id = "op4"><a><%= link_to "Usuarios", :controller => "users", :action => "index" %></a></li>
-      
+        <li id = "op4"><a><%= link_to "Promociones", :controller => "promocions", :action => "index" %></a></li>
         <li id = "op3"><a><%= link_to "Inicio", :controller => "inicio", :action => "opciones" %></a></li>
       </ul>
     </nav><!-- / nav -->
@@ -158,18 +160,20 @@ ul li span{
 
     <article id = "primer">
       <header>
+        <br><br><br><br><br>
         <div>
-
+          <%=link_to "Negocios Pendientes", {controller: "pendientes"}, class: "amarillo"%>
+          <%=link_to "Negocios Rechazados y BAJAS", {controller: "rechazados", action: "negocios"}, class: "rojo"%>
         </div>
         <h1>NEGOCIOS VERIFICADOS ACTIVOS</h1>
       </header>
-      <br><br><br><br>
+      <br><br><br><br><br><br><br><br><br>
 
         <ul>
           <% @negocios.each do |negocio| %>
           <li>
             <span id = "nombre">Negocio: <%=negocio.nombre_empresa%></span>
-            <span id = "correo">Dueño: <%= negocio.usuario.nombre_usuario %> <%= negocio.usuario.apellidos %></span>
+            <span id = "correo">Dueño: <%= negocio.user.name %> <%= negocio.user.apellidos %></span>
             <button id = "btIr">
                     <%= link_to 'Ver Perfil', negocio %>
             </button>

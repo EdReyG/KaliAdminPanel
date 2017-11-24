@@ -1,0 +1,2 @@
+class Membresium < ApplicationRecord
+end

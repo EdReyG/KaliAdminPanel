@@ -1,4 +1,3 @@
-
 <style>
 
   .centrado{
@@ -112,7 +111,6 @@ ul li span{
     <nav>
       <ul>
         <li id = "op4"><a><%= link_to "Regresar", :controller => "inicio", :action => "opciones" %></a></li>
-        <li id = "op4"><a><%= link_to "Entrevistas", :controller => "entrevistas", :action => "index" %></a></li>
       </ul>
     </nav><!-- / nav -->
 
@@ -120,25 +118,31 @@ ul li span{
 
 
 
-<section id="main-content">
+  <section id="main-content">
 
 
-    <article id = "primer">
-      <header>
-        <h1>VENDEDORES CON CODIGO</h1>
-      </header>
-      <br><br><br>
-        <ul>
-          <% @vendedors.each do |vendedor| %>
-          <li>
-            <span id = "nombre"><%=vendedor.usuario.name%> <%=vendedor.usuario.apellidos%></span>
-            <span id = "correo">Codigo: <%=vendedor.codigo%></span>
-            <button id = "btIr">
-                    <%= link_to 'Ver Ventas', vendedor %>
-            </button>
-          </li>
-          <% end %>
-        </ul>
-    </article> <!-- /article -->
+      <article id = "primer">
+        <header>
+          <h1>USUARIOS DE TIPO VENDEDOR</h1>
+        </header>
+        <br><br><br>
 
-</section>
+          <ul>
+            <% @usuarios.each do |usuario| %>
+            <li>
+              <span id = "nombre"><%=usuario.name%> <%=usuario.apellidos%></span>
+              <span id = "correo">Correo: <%=usuario.email%></span>
+              <button id = "btIr">
+                      <%= link_to 'Ver Perfil', usuario %>
+              </button>
+            </li>
+            <% end %>
+          </ul>
+      </article> <!-- /article -->
+
+  </section>
+
+  <section class = "centrado">
+
+      <label class = "nuevo"><%= link_to 'Asignar codigo', new_vendedor_path %></label>
+  </section>

@@ -9,4 +9,8 @@ class User < ApplicationRecord
 
 	def password_salt=(new_salt)
 	end
+
+  def name_with_initial
+    "#{name}  #{apellidos} con email: #{email}"
+  end
 end

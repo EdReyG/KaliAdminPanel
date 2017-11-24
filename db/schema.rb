@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171122171035) do
+ActiveRecord::Schema.define(version: 20171124162250) do
 
   create_table "categorias", force: :cascade do |t|
     t.string "nombre"
@@ -50,6 +50,15 @@ ActiveRecord::Schema.define(version: 20171122171035) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "membresia", force: :cascade do |t|
+    t.string "nombre"
+    t.integer "metros_alcance"
+    t.string "descripcion"
+    t.float "precio"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "negocio_categoria", force: :cascade do |t|
     t.integer "categoria_id"
     t.integer "negocio_id"
@@ -83,6 +92,7 @@ ActiveRecord::Schema.define(version: 20171122171035) do
     t.integer "veces_visto"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "membresia_id"
   end
 
   create_table "palabra_claves", force: :cascade do |t|
@@ -132,6 +142,22 @@ ActiveRecord::Schema.define(version: 20171122171035) do
     t.string "name"
     t.string "provider"
     t.string "uid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "vendedors", force: :cascade do |t|
+    t.string "codigo"
+    t.integer "user_id"
+    t.date "fecha"
+    t.datetime "fecha_venta"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "venta", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "vendedor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

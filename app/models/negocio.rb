@@ -9,4 +9,5 @@ class Negocio < ApplicationRecord
   has_many :horario
   has_many :llamada
   has_many :pendiente
+  belongs_to :membresia, class_name: "Membresium"
 end

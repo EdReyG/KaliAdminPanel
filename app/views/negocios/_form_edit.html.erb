@@ -4,22 +4,11 @@
 
 	<div class="row">
 
-		<div class="col-md-2 row">
 
-			<a href= /users/sign_in class="btn btn-link font" role="button">
-				Iniciar sesión
-			</a>
-			<a href= /usuarios/new class="btn btn-link font" role="button" >
-				Cerrar sesión
-			</a>
-			</div>
-		</div>
 </div>
 </header>
 
-<% currentuser =  Usuario.where("correo = ?", current_user.email)%>
 
-<% currentuser.each do |f| %>
 
 	<%= form_with(model: negocio, local: true) do |form| %>
 	  <% if negocio.errors.any? %>
@@ -60,7 +49,7 @@
 
 
 	          </div>
-	  				
+
 						<div class="row">
 						<div class="col-md-12">
 
@@ -69,13 +58,13 @@
 	  						<div class="col-md-6">
 
 	  							<button type="button" class="btn btn-default">
-	  								Atrás
+	  								<%= link_to "Regresar", :controller => "negocios", :action => "index" %>
 	  							</button>
 	  						</div>
 	  						<div class="col-md-6">
 	                <div class="actions">
 
-	                  <%=form.submit (""), :class => 'submit_registro'%>
+	                  <%=form.submit ("Modificar")%>
 	                </div>
 	  						</div>
 	  					</div>
@@ -86,5 +75,5 @@
 	  </div>
 	</div>
 
-	<% end %>
+
 <% end %>

@@ -1,4 +1,4 @@
-class VendedorsController < ApplicationController
+class EntrevistasController < ApplicationController
 
 
   # GET /vendedors

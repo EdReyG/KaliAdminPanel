@@ -1,14 +1,4 @@
-<style>
-
-.rojon{
-  color: red;
-}
-
-section ul li:nth-child(odd){
-  background-color:red;
-  color: white;
-}
-
+  <style>
     .amarillo{
 
   font-weight: bold;
@@ -17,7 +7,6 @@ section ul li:nth-child(odd){
   float:right;
   clear: right;
 }
-
 .rojo{
   font-weight: bold;
   //background: red;
@@ -25,65 +14,48 @@ section ul li:nth-child(odd){
   float:right;
   clear: right;
 }
-
 #pArriba{
   margin-top: -20%
 }
-
 .ocultar{
 margin-top:-20%;
 margin: 0%
 }
-
 #elem{
   margin-top: -5%;
   margin-left: -15%;
 }
-
 #btIr{
   padding: 0%;
   margin:0%;
 }
-
 h1{
   clear: both;
 }
-
-
-
 #nombre{
     margin-left: 8%;
 }
-
 ul li span{
   float: left;
   margin-top: 1.5%;
 }
-
 #correo{
   margin-left: 10%;
 }
-
 #btIr{
   width: 15%;
   margin-top: 1%;
 }
-
 @media screen and (max-width: 800px){
-
 #btIr{ float: right;
   margin-top: 3%;
   width: 30%;
 
 }
-
 .nuevo{
-
   border-radius: 5px;
-
 }
 }
-
 .nuevo{
   font-weight: bold;
   font-size: 120%;
@@ -95,41 +67,43 @@ ul li span{
   background-color: orange;
   text-align: center;
 }
-
 .naranja{
   color: orange;
 }
+  </style>
 
-</style>
-
-
-<header id="main-header">
+  <header id="main-header">
 
     <a id="logo-header" class="ocultar" >
-      <span class="site-name">Promociones Rechazadas y BAJAS</span>
-      <span class="site-desc">Lista (por fecha)</span>
+      <span class="site-name">Promociones Registradas</span>
+      <span class="site-desc">Lista (por nombre de la promocion)</span>
     </a> <!-- / #logo-header -->
 
-    <nav class = "abajo">
+    <nav>
       <ul>
-        
-        <li id = "op4"><a><%= link_to "Regresar", :controller => "promocions", :action => "index" %></a></li>
+        <li id = "op4"><a><%= link_to "Usuarios", :controller => "users", :action => "index" %></a></li>
+        <li id = "op4"><a><%= link_to "Negocios", :controller => "negocios", :action => "index" %></a></li>
+        <li id = "op4"><a><%= link_to "Inicio", :controller => "inicio", :action => "opciones" %></a></li>
       </ul>
     </nav><!-- / nav -->
 
   </header>
 
 
+<section id="main-content">
 
-  <section id="main-content">
 
     <article id = "primer">
       <header>
-        <h1 class = "rojon">PROMOCIONES RECHAZADAS Y BAJAS</h1>
+        <div>
+          <%=link_to "Promociones Pendientes", {controller: "pendientes"}, class: "amarillo"%>
+          <%=link_to "Promociones Rechazadas y BAJAS", {controller: "rechazados", action: "promociones"}, class: "rojo"%>
+        </div>
+        <h1>PROMOCIONES VERIFICADAS Y ACTIVAS</h1>
       </header>
       <br><br><br><br>
         <ul>
-          <% @promociones.each do |promocion| %>
+          <% @promocions.each do |promocion| %>
           <li>
             <span id = "nombre"><%=promocion.promocion%> </span>
             <span id = "correo">Negocio: <%= promocion.negocio.nombre_empresa %></span>
@@ -139,6 +113,10 @@ ul li span{
           </li>
           <% end %>
         </ul>
+
     </article> <!-- /article -->
 
 </section>
+
+
+<label class = "nuevo"><%= link_to 'Nueva Promocion', new_promocion_path ,:class => "naranj"%></label>

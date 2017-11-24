@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :llamadas
   resources :categorias
   resources :negocios
+  resources :vendedors
+  resources :venta
+  resources :entrevistas
 
   root 'inicio#opciones'
 
@@ -22,8 +25,14 @@ Rails.application.routes.draw do
 
   get 'rechazados/promociones'
 
+  get 'rechazados/actualizaciones'
+
   get 'pendientes/rechazados'
 
   get 'pendientes/index'
+
+  get 'entrevistas/index'
+
+  get 'entrevistas/new'
 
 end

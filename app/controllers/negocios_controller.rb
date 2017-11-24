@@ -110,8 +110,8 @@ class NegociosController < ApplicationController
   def update
     respond_to do |format|
       if @negocio.update(negocio_params)
-        format.html { redirect_to '/negocio_web/edit', notice: 'Negocio was successfully updated.' }
-        format.json { render :show, status: :ok, location: '/negocio_web/edit' }
+        format.html { redirect_to @negocio, notice: 'Negocio was successfully updated.' }
+        format.json { render :show, status: :ok, location:@negocio}
       else
         format.html { render :edit }
         format.json { render json: @negocio.errors, status: :unprocessable_entity }
@@ -139,7 +139,7 @@ class NegociosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def negocio_params
-      params.require(:negocio).permit(:nombre_empresa, :latitud, :longitud, :verificado, :precio_promedio, :rating_precio, :rating_calidad, :imagen, :cantidad_rating, :cantidad_precio, :ultima_conexion, :fecha_registro, :usuario_id, :veces_visto, :membresia_id, :telefono, :descripcion)
+      params.require(:negocio).permit(:nombre_empresa, :latitud, :longitud, :verificado, :precio_promedio, :rating_precio, :rating_calidad, :imagen, :cantidad_rating, :cantidad_precio, :ultima_conexion, :fecha_registro, :user_id, :veces_visto, :membresia_id, :telefono, :descripcion)
     end
 
 

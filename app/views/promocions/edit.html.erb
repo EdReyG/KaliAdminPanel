@@ -1,0 +1,57 @@
+<style>
+.fBlanco{
+	background: white;
+}
+.naranja1{
+  color:orange;
+  text-align: center;
+  font-size: 400%;
+}
+.centrado{
+	width: 100%;
+	padding: 10%;
+	padding-top: 0%;
+	font-size: 140%;
+}
+.centrado label{
+	color: #1E88E5;
+}
+.centrado input{
+	margin: 1%;
+	font-size: 130%;
+	width: 50%;
+}
+.miClase{
+	color:red;
+}
+.oculto-casi{
+	display: none;
+}
+</style>
+
+
+<body class = "fBlanco">
+
+<h1 class = "naranja1">Editando Promocion</h1>
+
+<section class ="centrado">
+<%= render 'form', promocion: @promocion %>
+
+<%= link_to 'Ver Promocion', @promocion %> |
+
+
+<% if @promocion.aprobada ==1%>
+
+  <%= link_to 'Regresar', promocions_path %>
+
+  <%else%>
+    <% if @promocion.aprobada ==-1%>
+      <%= link_to 'Regresar',{:controller => "rechazados", :action => "promociones"} %>
+    <%else%>
+      <%= link_to 'Regresar',{:controller => "pendientes", :action => "index"} %>
+    <%end%>
+  <%end%>
+
+</section>
+
+</body>

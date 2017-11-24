@@ -45,12 +45,12 @@ ul li span{
 #btIr{ float: right;
   margin-top: 3%;
   width: 30%;
-  
+
 }
 
 .nuevo{
 
-  border-radius: 5px; 
+  border-radius: 5px;
 
 }
 }
@@ -86,26 +86,25 @@ ul li span{
 
 
 <header id="main-header">
-    
+
     <a id="logo-header" class="ocultar" >
       <span class="site-name">Negocios Rechazados y BAJAS</span>
       <span class="site-desc">Lista (por nombre del negocio)</span>
     </a> <!-- / #logo-header -->
- 
+
     <nav class = "abajo">
       <ul>
-        <!--<li id = "op4"><a><%= link_to "Usuarios Rechazados", :controller => "rechazados", :action => "usuarios" %></a></li>
-        <li id = "op4"><a><%= link_to "Promos rechazadas", :controller => "rechazados", :action => "promociones" %></a></li>-->
+        
         <li id = "op4"><a><%= link_to "Regresar", :controller => "negocios", :action => "index" %></a></li>
       </ul>
     </nav><!-- / nav -->
- 
+
   </header>
 
 
 
   <section id="main-content">
-  
+
     <article id = "primer">
       <header>
         <h1 class = "rojo">NEGOCIOS RECHAZADOS Y BAJAS</h1>
@@ -114,20 +113,20 @@ ul li span{
 <br>
 <br>
 
-<%if @negocios.length >0%> 
+<%if @negocios.length >0%>
         <ul>
           <% @negocios.each do |negocio| %>
           <li>
             <span id = "nombre">Negocio: <%=negocio.nombre_empresa%></span>
-            <span id = "correo">Dueño: <%= negocio.usuario.nombre_usuario %> <%= negocio.usuario.apellidos %></span>
+            <span id = "correo">Dueño: <%= negocio.user.nombre_usuario %> <%= negocio.usuario.apellidos %></span>
             <button id ="btbt" class = "abajo"><%= link_to 'Ver Perfil', negocio %> </button>
-                    
+
           </li>
           <% end %>
-        </ul> 
+        </ul>
         <%else%>
               <h1>No hay negocios rechazados o dados de baja actualmente...</h1>
-        <%end%>       
+        <%end%>
     </article> <!-- /article -->
-  
+
 </section>
