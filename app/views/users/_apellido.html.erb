@@ -1,0 +1,16 @@
+<ul>
+  <% @usuarios.order(:apellidos).each do |usuario| %>
+  <li>
+    <%@vend = Vendedor.where("user_id=?", usuario.id) %>
+    <span id = "nombre"><%=usuario.apellidos%>  <%=usuario.name%> </span>
+    <span id = "correo">Correo: <%=usuario.email%></span>
+    <button id = "btIr" >
+      <%= link_to 'Eliminar',  usuario,method: :delete ,data: { confirm: 'Desea eliminar el usuario?' } %>
+    </button>
+    <button id = "btIr">
+      <%= link_to 'Ver Perfil', usuario %>
+    </button>
+
+  </li>
+  <% end %>
+</ul>

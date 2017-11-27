@@ -10,10 +10,15 @@ class UsersController < ApplicationController
 
   def index
 
-   #obtener todos los usuarios y pasarlos a la variable @usuarios
-    @usuarios = User.where(activo: true).order(:apellidos)
+    if params[:search] != 0
+      @usuarios = User.where("name LIKE ? or apellidos LIKE ?","%#{params[:search]}%","%#{params[:search]}%")
 
-    #cambiar al directorio /public
+    else
+      #obtener todos los usuarios y pasarlos a la variable @usuarios
+      @usuarios = User.where(activo: true).order(:apellidos)
+    end
+   #obtener todos los usuarios y pasarlos a la variable @usuarios
+   #cambiar al directorio /public
     Dir.chdir "#{Rails.root.join('public')}"
 
     #iteración de todos los usuarios en el arreglo @usuarios
@@ -149,6 +154,7 @@ class UsersController < ApplicationController
   # DELETE /usuarios/1.json
   def destroy
     @usuario.destroy
+
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'Usuario was successfully destroyed.' }
       format.json { head :no_content }

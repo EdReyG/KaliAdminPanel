@@ -5,7 +5,20 @@ class NegociosController < ApplicationController
   # GET /negocios
   # GET /negocios.json
   def index
-    @negocios = Negocio.all.includes(:user).where(verificado: 1)
+    if params[:search]
+      @negocios = Negocio.where("nombre_empresa LIKE ?", "%#{params[:search]}%").includes(:user).where(verificado: 1)
+    elsif params[:order]
+      @negocios = Negocio.all.includes(:user).order(:fecha_registro).where(verificado: 1)
+    elsif params[:basico]
+      @negocios = Negocio.where("membresia_id LIKE 1", "%#{params[:search]}%").includes(:user).where(verificado: 1)
+    elsif params[:gratis]
+      @negocios = Negocio.where("membresia_id LIKE 2", "%#{params[:search]}%").includes(:user).where(verificado: 1)
+    elsif params[:premium]
+      @negocios = Negocio.where("membresia_id LIKE 3", "%#{params[:search]}%").includes(:user).where(verificado: 1)
+    else
+      @negocios = Negocio.all.includes(:user).where(verificado: 1)
+    end
+
 
     #cambiar al directorio /public
     Dir.chdir "#{Rails.root.join('public')}"
@@ -80,7 +93,7 @@ class NegociosController < ApplicationController
   # GET /negocios/new
   def new
     @negocio = Negocio.new
-    
+
   end
 
   # GET /negocios/1/edit

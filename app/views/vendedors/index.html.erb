@@ -126,10 +126,14 @@ ul li span{
     <article id = "primer">
       <header>
         <h1>VENDEDORES CON CODIGO</h1>
+        <%= form_tag("/vendedors", :method => "GET", id: "search-form") do %>
+            <%= text_field_tag :search, params[:search], placeholder: "Por nombre"%>
+            <%= submit_tag "Buscar", :name => nil %>
+        <% end %>
       </header>
       <br><br><br>
         <ul>
-          <%@vendedores = Vendedor.all.includes(:user)%>
+
           <% @vendedores.each do |vendedor| %>
           <li>
             <span id = "nombre"><%=vendedor.user.name%> <%=vendedor.user.apellidos%></span>

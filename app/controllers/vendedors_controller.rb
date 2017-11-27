@@ -5,8 +5,14 @@ class VendedorsController < ApplicationController
   # GET /vendedors.json
   def index
     #@vendedors = Vendedor.all.includes(:usuario)
-    @vendedors = Vendedor.find_by_sql("SELECT v.*, u.* FROM  vendedors v, users u WHERE v.user_id = u.id");
-    @usuarios = User.where(tipo: "v")
+    if params[:search] != 0
+      @vendedores = Vendedor.all.includes(:user)
+      @usuarios = User.where("name LIKE ? or apellidos LIKE ?","%#{params[:search]}%","%#{params[:search]}%").where(tipo: "v")
+    else
+      @vendedors = Vendedor.find_by_sql("SELECT v.*, u.* FROM  vendedors v, users u WHERE v.user_id = u.id");
+      @usuarios = User.where(tipo: "v")
+    end
+
   end
 
   # GET /vendedors/1

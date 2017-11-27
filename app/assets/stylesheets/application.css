@@ -17,6 +17,10 @@
  @import "bootstrap";
  @import "font-awesome";
 
+ .orderhidden {
+   visibility: hidden;
+ }
+ 
  .header
  {
    background: url('F.png');
@@ -98,84 +102,6 @@
 
  }
 
- #edit_perfil
- {
-   background-image: url("B-13-3.png");
-   height: 65px;
-   width: 65px;
-   position: absolute;
-   top: 82px;
-   right: 205px;
-   background-repeat: no-repeat;
- }
-
- #mensajes_perfil
- {
-   background-image: url("B-13-5.png");
-   height: 130px;
-   width: 335px;
-   position: absolute;
-   top: 26px;
-   right: 1px;
-   background-size: 335px 130px;
-   background-repeat: no-repeat;
- }
-
- #agenda_perfil
- {
-   background-image: url("B-13-4.png");
-   height: 130px;
-   width: 335px;
-   position: absolute;
-   top: 26px;
-   right: 113px;
-   background-size: 335px 130px;
-   background-repeat: no-repeat;
- }
- #legal_perfil
- {
-   background-image: url("B-13-7.png");
-   height: 65px;
-   width: 160px;
-   position: absolute;
-   top: 186px;
-   right: 53px;
-   background-size: 160px 65px;
-   background-repeat: no-repeat;
- }
- #historial_perfil
- {
-   background-image: url("B-13-9.png");
-   height: 65px;
-   width: 160px;
-   position: absolute;
-   top: 186px;
-   left: 130px;
-   background-size: 160px 65px;
-   background-repeat: no-repeat;
- }
- #contacto_perfil
- {
-   background-image: url("B-13-8.png");
-   height: 65px;
-   width: 160px;
-   position: absolute;
-   top: 186px;
-   left: 74px;
-   background-size: 160px 65px;
-   background-repeat: no-repeat;
- }
- #vendedor_perfil
- {
-   background-image: url("B-13-6.png");
-   height: 65px;
-   width: 160px;
-   position: absolute;
-   top: 186px;
-   right: 110px;
-   background-size: 160px 65px;
-   background-repeat: no-repeat;
- }
 
  .cierre_session
  {

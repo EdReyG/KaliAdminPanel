@@ -42,7 +42,7 @@
 .amarillo{
 
   font-weight: bold;
-  //background: yellow;
+  background: orange;
   font-size: 100%;
   float:right;
   clear: right;
@@ -50,7 +50,7 @@
 
 .rojo{
   font-weight: bold;
-  //background: red;
+  background: orange;
   font-size: 100%;
   float:right;
   clear: right;
@@ -151,7 +151,7 @@ ul li span{
     <nav>
       <ul>
         <li id = "op4"><a><%= link_to "Usuarios", :controller => "users", :action => "index" %></a></li>
-        <li id = "op4"><a><%= link_to "Promociones", :controller => "promocions", :action => "index" %></a></li>
+        <li style="background-color:#1E88E5;" id = "op4"><a><%= link_to "Promociones", :controller => "promocions", :action => "index" %></a></li>
         <li id = "op3"><a><%= link_to "Inicio", :controller => "inicio", :action => "opciones" %></a></li>
       </ul>
     </nav><!-- / nav -->
@@ -166,8 +166,41 @@ ul li span{
           <%=link_to "Negocios Rechazados y BAJAS", {controller: "rechazados", action: "negocios"}, class: "rojo"%>
         </div>
         <h1>NEGOCIOS VERIFICADOS ACTIVOS</h1>
+        <%= form_tag("/negocios", :method => "GET", id: "search-form") do %>
+            <%= text_field_tag :search, params[:search], placeholder: "Buscar"%>
+            <%= submit_tag "Buscar", :name => nil %>
+        <% end %>
+        <br /><br>
+
+          <%= form_tag("/negocios", :method => "GET", id: "order-form") do  %>
+            <%= text_field_tag :order, params[:order], class: "orderhidden"%>
+        <div style="left:-50px;">
+            <%= submit_tag "Ordenar por fecha de registro", :name => nil %>
+          <% end %>
+        </div>
+          <%= form_tag("/negocios", :method => "GET", id: "gratis-form") do %>
+              <%= text_field_tag :gratis, params[:gratis], class: "orderhidden"%>
+          <div style="left:-50px;">
+              <%= submit_tag "Gratis", :name => nil %>
+          <% end %>
+          </div>
+          <br />
+          <%= form_tag("/negocios", :method => "GET", id: "basico-form") do %>
+              <%= text_field_tag :basico, params[:basico], class: "orderhidden"%>
+              <div style="left:-50px;">
+                  <%= submit_tag "Basico", :name => nil %>
+              <% end %>
+              </div>
+          <br />
+          <%= form_tag("/negocios", :method => "GET", id: "premium-form") do %>
+              <%= text_field_tag :premium, params[:premium], class: "orderhidden"%>
+              <div style="left:-50px;">
+                  <%= submit_tag "Premium", :name => nil %>
+              <% end %>
+              </div>
+
       </header>
-      <br><br><br><br><br><br><br><br><br>
+      <br><br><br><br><br><br><br>
 
         <ul>
           <% @negocios.each do |negocio| %>

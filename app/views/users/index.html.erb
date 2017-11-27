@@ -1,3 +1,39 @@
+<script>
+$(document).ready(function(){
+    $("#hide").click(function(){
+        $("#default_u").hide();
+    });
+});
+$(document).ready(function(){
+    $("#hide1").click(function(){
+        $("#default_u").hide();
+    });
+});
+
+
+function openCity(evt, cityName)
+{
+    // Declare all variables
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>
+
   <style>
   .amarillo{
 
@@ -9,8 +45,9 @@
 }
 
 .rojo{
+  color: black;
   font-weight: bold;
-  //background: red;
+  background: orange;
   font-size: 100%;
   float:right;
   clear: right;
@@ -95,7 +132,7 @@ ul li span{
 
     <a id="logo-header" class="ocultar" >
       <span class="site-name">Usuarios Registrados</span>
-      <span class="site-desc">Lista (por apellidos)</span>
+      <span class="site-desc">Lista de usuarios</span>
     </a> <!-- / #logo-header -->
 
     <nav>
@@ -108,37 +145,40 @@ ul li span{
   </header><!-- / #main-header -->
 
 <section id="main-content">
-
-
     <article id = "primer">
       <header>
       <div>
         <%=link_to "Usuarios Rechazados y BAJAS", {controller: "rechazados", action: "users"}, class: "rojo"%>
       </div>
         <h1>USUARIOS</h1>
+        <%= form_tag("/users", :method => "GET", id: "search-form") do %>
+            <%= text_field_tag :search, params[:search], placeholder: ""%>
+            <%= submit_tag "Buscar", :name => nil %>
+        <% end %>
       </header>
-      <br>
-      <br>
-      <br>
 
-        <ul>
-          <% @usuarios.each do |usuario| %>
-          <li>
-            <%puts usuario.id%>
-            <span id = "nombre"><%=usuario.apellidos%>  <%=usuario.name%> </span>
-            <span id = "correo">Correo: <%=usuario.email%></span>
-            <button id = "btIr" >
-              <%= link_to 'Eliminar',  usuario,method: :delete ,data: { confirm: 'Desea eliminar el usuario?' } %>
-            </button>
-            <button id = "btIr">
-              <%= link_to 'Ver Perfil', usuario %>
-            </button>
+    <div class="tab-container" style="padding-top: 50px;">
+    <div class="tab">
+      <button class="tablinks" id="hide" onclick="openCity(event, 'Tunegocio')">
+        Nombre
+      </button>
+      <button class="tablinks" id="hide1" onclick="openCity(event, 'Buscar')">
+        Apellido
+      </button>
 
-          </li>
-          <% end %>
-        </ul>
+    </div>
+    <br /><br /><br /><br /><br />
+    <br><br>
+    <div id="Tunegocio" class="tabcontent" style="display:none">
+      <%= render :partial => 'users/nombre', :controller => "users", :action => "nombre" %>
+    </div>
+
+    <div id="Buscar" class="tabcontent">
+      <%= render :partial => 'users/apellido', :controller => "users", :action => "apellido" %>
+    </div>
+
+    </div>
     </article> <!-- /article -->
 
 </section>
-
 <label class = "nuevo"><%= link_to 'Registrar nuevo usuario', new_user_path %></label>
