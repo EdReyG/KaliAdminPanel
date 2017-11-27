@@ -133,7 +133,10 @@ ul li span{
       </header>
       <br><br><br>
         <ul>
+          <% if @vendedores == nil %>
+					<h1>No hay ninguna coincidencia</h1>
 
+					<%else%>
           <% @vendedores.each do |vendedor| %>
           <li>
             <span id = "nombre"><%=vendedor.user.name%> <%=vendedor.user.apellidos%></span>
@@ -142,6 +145,8 @@ ul li span{
                     <%= link_to 'Ver Ventas', vendedor %>
             </button>
           </li>
+					<% end %>
+
           <% end %>
         </ul>
     </article> <!-- /article -->
