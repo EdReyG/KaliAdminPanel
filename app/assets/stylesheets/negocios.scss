@@ -1,3 +1,377 @@
 // Place all the styles related to the Negocios controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$azulKali: #3763A2;
+$naranjaKali: #F19B00;
+$azulClaroKali: #5F81B4;
+body {
+  background: url('/fondo.png') repeat;
+}
+.registration-box-1 {
+    width:100%;
+    background: white;
+    border: solid $azulKali;
+    border-width: 5px 5px;
+    padding-right: 30px;
+    padding-left: 10px;
+}
+.registration-box-gratis {
+    width:100%;
+    background: white;
+    border: solid $azulKali;
+}
+.registration-box-premium {
+    width:100%;
+    background: $azulKali;
+    border: solid $azulKali;
+
+}
+.registration-box-basico {
+    width:100%;
+    background: $azulClaroKali;
+    border: solid $azulClaroKali;
+}
+.horario-box {
+    width:100%;
+    background: white;
+    border: solid $azulKali;
+    border-width: 3px 3px;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+h1,
+h2,
+h3 {
+	font-family: Futura;
+	font-weight: bold;
+	color: $azulKali;
+}
+
+h4 {
+	font-family: Futura;
+	font-weight: bold;
+	color: $azulKali;
+}
+h1.kali-h1 {
+  color: $naranjaKali;
+}
+.kali-input {
+	background-color: white;
+	border-color: $azulKali;
+	height: 40px;
+	border-width: 2px;
+	font-family: Futura;
+  font-size: 15px;
+  font-weight: bold;
+  font-variant: normal;
+	line-height: 30px;
+	padding-left:10px;
+	margin-bottom: 5px;
+	margin-right: 5px;
+}
+.kali-input-sm {
+  background-color: white;
+  border-color: $azulKali;
+  border-width: 2px;
+  font-family: Futura;
+  font-size: 15px;
+  font-weight: bold;
+  font-variant: normal;
+  line-height: 20px;
+  padding-left:10px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  left: 300px;
+}
+
+.kali-input-smpan {
+  background-color: white;
+  border-color: $azulKali;
+  border-width: 2px;
+  font-family: Futura;
+  font-size: 15px;
+  font-weight: bold;
+  font-variant: normal;
+  line-height: 20px;
+  padding-left:10px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  position: absolute;
+  left: 597px;
+  top: -16px;
+}
+
+.kali-input-sm-error {
+  background-color: white;
+  border-color: red;
+  border-width: 4px;
+  font-family: Futura;
+  font-size: 15px;
+  font-weight: bold;
+  font-variant: normal;
+  line-height: 20px;
+  padding-left:10px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+}
+.kali-label {
+  font-family: Futura;
+  font-weight: bold;
+  color: $azulKali;
+}
+#map {
+  height: 400px;
+  width: 100%;
+}
+.decrease-padding{
+ padding-left:5px;
+ padding-right:5px;
+}
+
+.kali-btn-search {
+  background-color: #F19B00;
+  border-color: #F19B00;
+  font-family: Futura;
+  font-variant: normal;
+  color: white;
+
+}
+
+.kali-btn-search:hover {
+  color: #3763A2;
+  background-color: #F19B00;
+    border-color: #F19B00;
+}
+
+.kali-btn-search:focus {
+  color: #3763A2;
+  background-color: #F19B00;
+    border-color: #F19B00;
+}
+
+.kali-btn-search:active {
+  color: white;
+    background-color: #3763A2;
+    border-color: #F19B00;
+}
+
+.kali-btn-search:active:focus {
+  color: #F19B00;
+  background-color: #3763A2;
+  border-color: #3763A2;
+}
+
+.padding-left-0{
+    padding-left:1px;
+}
+.padding-right-0{
+    padding-right:1px;
+}
+
+.kali-input-timepicker {
+  text-align: center;
+}
+.timepicker-icon {
+
+}
+.btn-timepicker {
+  background-color: white;
+  border: 3px solid $azulKali;
+  color: $naranjaKali;
+  font-size: 20px;
+}
+.btn-timepicker:hover {
+  background-color: white;
+  color: $azulKali;
+  border-color: $naranjaKali;
+}
+
+.btn-timepicker:focus {
+  color: $azulKali;
+  background-color: white;
+  border-color: $azulKali;
+}
+
+.btn-timepicker:active {
+  color: white;
+    background-color: $azulKali;
+    border-color: $naranjaKali;
+}
+
+.btn-timepicker:active:focus {
+  color: $naranjaKali;
+  background-color: $azulKali;
+  border-color: $azulKali;
+}
+
+
+.kali-input-timepicker[disabled]{
+  background-color: white;
+  cursor: default;
+}
+
+.kali-table {
+  brackground-color: red;
+}
+
+.kali-btn-siguiente {
+  background-color: $naranjaKali;
+  border-color: $naranjaKali;
+  font-family: Futura;
+    font-size: 15px;
+    color: white;
+    border-width: 3px;
+}
+
+
+.kali-btn-siguiente:hover {
+  color: $azulKali;
+  background-color: $naranjaKali;
+    border-color: $naranjaKali;
+}
+
+.kali-btn-siguiente:focus {
+  color: $azulKali;
+  background-color: $naranjaKali;
+    border-color: $naranjaKali;
+}
+
+.kali-btn-siguiente:active {
+  color: white;
+    background-color: $azulKali;
+    border-color: $naranjaKali;
+}
+
+.kali-btn-siguiente:active:focus {
+  color: $naranjaKali;
+  background-color: white;
+  border-color: $naranjaKali;
+}
+
+.kali-p-gratis {
+  color: $azulKali;
+  font-family: Futura;
+  margin-left: 15px;
+  font-size: 15px;
+}
+.kali-p-premium {
+  color: white;
+  font-family: Futura;
+  margin-left: 15px;
+  font-size: 15px;
+}
+.bienvenido {
+  background-color: $azulKali;
+}
+.bienvenido p {
+  color: $naranjaKali;
+  font-family: Futura;
+  font-size: 50px;
+  font-weight: bold;
+}
+.bienvenido-box {
+    width:100%;
+    background: white;
+    border: solid $azulKali;
+    border-width: 5px 5px;
+}
+.parrafo-bienvenido-1 h3{
+  color: $azulKali;
+  font-family: Futura;
+}
+.parrafo-bienvenido-2 p{
+  color: $azulKali;
+  font-family: Futura;
+  font-size: 14px;
+}
+.kali-label {
+    color: $azulKali;
+    font-family: Futura;
+    font-size: 14px;
+}
+.kali-select {
+
+
+}
+select{
+    background: white !important;
+}
+option:not(:checked) {
+    background-color: white;
+    color: $azulKali;
+}
+option:checked, option:hover {
+    color: white;
+    background-color: $naranjaKali;
+}
+
+.kali-file-input{
+  border-width: 2px;
+}
+.kali-btn-browse {
+  background-color: $naranjaKali;
+  border-color: $naranjaKali;
+  font-family: Futura;
+    font-size: 15px;
+    color: white;
+    border-width: 3px;
+}
+
+
+.kali-btn-browse:hover {
+  color: $azulKali;
+  background-color: $naranjaKali;
+    border-color: $naranjaKali;
+}
+
+.kali-btn-browse:focus {
+  color: $azulKali;
+  background-color: $naranjaKali;
+    border-color: $azulKali;
+}
+
+.kali-btn-browse:active {
+  color: white;
+    background-color: $azulKali;
+    border-color: $azulKali;
+}
+
+.kali-btn-browse:active:focus {
+  color: $naranjaKali;
+  background-color: $azulKali;
+  border-color: $azulKali;
+}
+.negocio-show-header {
+  background-color: $azulKali;
+  color: white;
+  font-family: Futura;
+  height:160px;
+}
+
+#descripcion  {
+   resize: none;
+}
+
+.kali-navbar-orange {
+      background-color: #F19B00;
+
+    }
+    .kali-navbar-orange .navbar-nav > li > a {
+      color: white;
+    }
+    .center-navbar-content {
+    float:none;
+    margin:0 auto;
+    display: block;
+    text-align: center;
+    }
+
+    .center-navbar-content > li {
+        display: inline-block;
+        float:none;
+    }
+    .kali-navbar-orange .navbar-nav > li > a:hover,
+    .kali-navbar-orange .navbar-nav > li > a:focus {
+      /*cambiar color de tab item en hover*/
+      color: #3763A2;
+    }

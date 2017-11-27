@@ -129,9 +129,10 @@ ul li span{
       </header>
       <br><br><br>
         <ul>
-          <% @vendedors.each do |vendedor| %>
+          <%@vendedores = Vendedor.all.includes(:user)%>
+          <% @vendedores.each do |vendedor| %>
           <li>
-            <span id = "nombre"><%=vendedor.usuario.name%> <%=vendedor.usuario.apellidos%></span>
+            <span id = "nombre"><%=vendedor.user.name%> <%=vendedor.user.apellidos%></span>
             <span id = "correo">Codigo: <%=vendedor.codigo%></span>
             <button id = "btIr">
                     <%= link_to 'Ver Ventas', vendedor %>

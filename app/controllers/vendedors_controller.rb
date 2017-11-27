@@ -1,6 +1,6 @@
 class VendedorsController < ApplicationController
 
-
+  before_action :set_vendedor, only: [:show, :edit, :update, :destroy]
   # GET /vendedors
   # GET /vendedors.json
   def index
@@ -13,12 +13,6 @@ class VendedorsController < ApplicationController
   # GET /vendedors/1.json
   def show
     @usuario = User.find(@vendedor.user_id)
-    #@vendidos = Ventum.where(vendedor_id: @usuario_id).includes(:usuarios)
-    #cadSQL = "SELECT u.nombre_usuario, u.apellidos, u.celular, v.fecha_venta FROM Kali_Base.usuarios u, Kali_Base.venta v WHERE  v.vendedor_id = "+@vendedor.usuario_id.to_s;
-    cadSQL = "SELECT u.nombre_usuario, u.apellidos, u.celular, v.fecha_venta FROM Kali_Base.usuarios u, Kali_Base.venta v WHERE v.user_id = u.id AND v.vendedor_id = "+(@vendedor.usuario_id.to_s) +" order by fecha_venta DESC";
-    @vendidos = Ventum.find_by_sql(cadSQL);
-
-    Dir.chdir "#{Rails.root.join('public/')}"
 
     #iteración de todos los usuarios en el arreglo @usuarios
       # creamos una variable que va a crear en string el nombre de la foto que se va a guardar

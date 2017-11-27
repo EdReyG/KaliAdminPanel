@@ -105,7 +105,7 @@ ul li span{
         <ul>
           <% @promocions.each do |promocion| %>
           <li>
-            <span id = "nombre"><%=promocion.promocion%> </span>
+            <span id = "nombre"><%=promocion.nombre%> </span>
             <span id = "correo">Negocio: <%= promocion.negocio.nombre_empresa %></span>
             <button id = "btIr">
                     <%= link_to 'Ver Promocion', promocion %>

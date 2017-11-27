@@ -1,3 +1,4 @@
+<center style="padding-top: 40px;">
 <%= form_with(model: promocion, local: true) do |form| %>
   <% if promocion.errors.any? %>
     <div id="error_explanation">
@@ -11,30 +12,41 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :Titulo %>
-    <%= form.text_field :promocion, id: :promocion_promocion %>
+  <div class="field row" style="width: 40%; padding: 15px;">
+    <div class="col-md-6"><%= form.label :nombre %></div>
+    <div class="col-md-6"><%= form.text_field :nombre, id: :promocion_nombre%></div>
   </div>
 
-  <div class="field">
-    <%= form.label :descripcion %>
-    <%= form.text_field :descripcion, id: :promocion_descripcion %>
+  <div class="field row" style="width: 40%; padding: 15px;">
+    <div class="col-md-6"><%= form.label :descripcion %></div>
+    <div class="col-md-6"><%= form.text_field :descripcion, id: :promocion_descripcion %></div>
   </div>
 
-
-  <div class="field">
-    <% form.label :poster , class: 'oculto-casi'%>
-    <% form.text_field :poster, {id: :promocion_poster, class: 'oculto-casi'}%>
+  <center><label>Escriba:</label><br>
+  <label>1 para Aceptarla</label><br>
+  <label>-1 para darla de BAJA o rechazarla</label><br></center>
+  <div class="field row" style="width: 40%; padding: 15px;">
+    <div class="col-md-6"><%= form.label :aprobada %></div>
+    <div class="col-md-6"><%= form.number_field :aprobada, id: :promocion_aprobada %></div>
   </div>
 
+  <div class="field row" style="width: 40%; padding: 15px;">
+    <div class="col-md-6"><% form.label :poster , class: 'oculto-casi'%></div>
+    <div class="col-md-6"><% form.text_field :poster, {id: :promocion_poster, class: 'oculto-casi'}%></div>
+  </div>
 
-  <div class="hidden">
-    <%= form.label :negocio_id %>
+  <div class="field row" style="width: 60%; padding: 15px;">
+    <div class="col-md-6"><%= form.label :fecha_registro %></div>
+    <div class="col-md-6"><%= form.datetime_select :fecha_registro, id: :promocion_fecha_registro %></div>
+  </div>
 
-    <%=form.text_field :negocio_id,  :value => $id_negocio4promo %>
+  <div class="field row" style="width: 40%; padding: 15px;">
+    <div class="col-md-6"><%= form.label :negocio_id %></div>
+    <div class="col-md-6"><%=form.collection_select(:negocio_id, Negocio.all, :id,:nombre_empresa, prompt: "Selecciona la empresa que desees", class: 'grande_l') %></div>
 
   </div>
   <div class="actions">
     <%= form.submit("Aceptar") %>
   </div>
 <% end %>
+</center>

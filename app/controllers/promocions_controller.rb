@@ -25,11 +25,11 @@ class PromocionsController < ApplicationController
   # POST /promocions.json
   def create
     @promocion = Promocion.new(promocion_params)
-    
+
     respond_to do |format|
       if @promocion.save
-        format.html { redirect_to '/usuario_connected/index', notice: 'Promocion was successfully created.' }
-        format.json { render :show, status: :created, location: '/usuario_connected/index' }
+        format.html { redirect_to @promocion, notice: 'Promocion was successfully created.' }
+        format.json { render :show, status: :created, location: @promocion }
       else
         format.html { render :new }
         format.json { render json: @promocion.errors, status: :unprocessable_entity }

@@ -80,7 +80,7 @@ class NegociosController < ApplicationController
   # GET /negocios/new
   def new
     @negocio = Negocio.new
-
+    
   end
 
   # GET /negocios/1/edit

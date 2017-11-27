@@ -130,44 +130,44 @@
 <body class = "fBlanco">
 
 <header id="main-header">
-    
+
     <a id="logo-header" class="ocultar" >
       <span class="site-name">Vendedor</span>
       <span class="site-desc">Historial</span>
     </a> <!-- / #logo-header -->
- 
+
     <nav>
       <ul>
-        
+
         <li id = "op4"><a><%= link_to "Vendedores", :controller => "vendedors", :action => "index" %></a></li>
       </ul>
     </nav><!-- / nav -->
- 
+
   </header>
-    
+
 
   <section id = "nuevoUsuario">
   <article>
   <h1 class="naranja" >DATOS DEL VENDEDOR</h1>
 
   <div class = "cuerpoUsuario">
-  
+
     <div id = "datosUsuario">
 
       <%begin%>
   <!--Aqui pongo el despliegue de la foto-->
   <!--Se logra gracias a lo que esta en el controlador-->
-    <img src="/<%=@usuario.foto%>" width="50px"> 
+    <img src="/<%=@usuario.foto%>" width="50px">
     <br>
   <%rescue%>
   <%end%>
 
       <label class = "etiquetas">Nombre</label>
-      <a class = "etiquetas cajita"><%= @usuario.nombre_usuario %></a>
+      <a class = "etiquetas cajita"><%= @usuario.name %></a>
       <label class = "etiquetas">Apellidos</label>
       <a class = "etiquetas cajita"><%= @usuario.apellidos %></a>
       <label class = "etiquetas">Correo electrónico</label>
-      <a class = "etiquetas cajita"><%= @usuario.correo %></a>
+      <a class = "etiquetas cajita"><%= @usuario.email %></a>
       <label class = "etiquetas">Teléfono</label>
       <a class = "etiquetas cajita"> <%= @usuario.celular %> </a>
       <label class = "etiquetas">Activo</label>
@@ -180,7 +180,7 @@
 
   </div>
   </article>
-  
+
 </section>
 
 <section class = "fNaranja">
@@ -191,31 +191,19 @@
       <br><br><br><br><br>
 
   		<ul>
+
+        <%@vendedores = Vendedor.all.includes(:user)%>
+        <% @vendedores.each do |vendedor| %>
+          <%@vendidos = Ventum.where("vendedor_id=?", vendedor.id);%>
           <% @vendidos.each do |usuario| %>
           <li>
-            <span id = "nombre"><%=usuario.nombre_usuario%> <%=usuario.apellidos%></span>
+            <span id = "nombre"><%=usuario.name%> <%=usuario.apellidos%></span>
             <span id = "correo">Celular: <%=usuario.celular%> Fecha: <%=usuario.fecha_venta%></span>
           </li>
           <% end %>
-        </ul>      
+          <% end %>
+        </ul>
   	</article>
 </section>
 
-
-
-<!--
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Codigo:</strong>
-  <%= @vendedor.codigo %>
-</p>
-
-<p>
-  <strong>Usuario:</strong>
-  <%= @vendedor.usuario %>
-</p>
-
-<%= link_to 'Edit', edit_vendedor_path(@vendedor) %> |
-<%= link_to 'Back', vendedors_path %>-->
 </body>
