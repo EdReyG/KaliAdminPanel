@@ -291,7 +291,7 @@ Para el cambio de los tamaños de las pantallas
 <%= link_to 'Editar', edit_user_path(@usuario) %> |
 
 <%if @usuario.activo%>
-    <%= link_to 'Regresar', user_path %>
+    <%= link_to 'Regresar', {:controller => "users", :action => "index"} %>
 <%else%>
     <%= link_to 'Regresar', {:controller => "rechazados", :action => "users"} %>
 <%end%>

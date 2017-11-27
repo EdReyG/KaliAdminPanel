@@ -54,6 +54,7 @@ class PromocionsController < ApplicationController
   # DELETE /promocions/1
   # DELETE /promocions/1.json
   def destroy
+    @promocion = Promocion.find(params[:id])
     @promocion.destroy
     respond_to do |format|
       format.html { redirect_to promocions_url, notice: 'Promocion was successfully destroyed.' }

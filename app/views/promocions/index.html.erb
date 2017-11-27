@@ -107,6 +107,9 @@ ul li span{
           <li>
             <span id = "nombre"><%=promocion.nombre%> </span>
             <span id = "correo">Negocio: <%= promocion.negocio.nombre_empresa %></span>
+            <button id = "btIr" >
+              <%= link_to 'Eliminar',  promocion,method: :delete ,data: { confirm: 'Desea eliminar la promocion?' } %>
+            </button>
             <button id = "btIr">
                     <%= link_to 'Ver Promocion', promocion %>
             </button>

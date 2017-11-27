@@ -1,131 +1,107 @@
+
+
+<center style="padding-top: 50px;">
 <%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-<br><br><br><br><br><br>
-  <div class="registro_1">
-    <div class="row">
-      <div class="col-md-12">
-        <br><br><br><br><br><br><br><br>
-        <div class="row">
-          <div class="col-md-3">
-            <script>
-            var handleFileSelect = function(evt) {
-                var files = evt.target.files;
-                var file = files[0];
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-                if (files && file) {
-                    var reader = new FileReader();
+  <script>
+  var handleFileSelect = function(evt) {
+      var files = evt.target.files;
+      var file = files[0];
 
-                    reader.onload = function(readerEvt) {
-                        var binaryString = readerEvt.target.result;
-                        var fileending = file.type;
+      if (files && file) {
+          var reader = new FileReader();
 
-                        var test = btoa(binaryString);
-                        var final = "data:" + fileending+";base64," + test;
-                        document.getElementById("img_preview").src = final
-                        document.getElementById("usuario_foto").value = test
-                    };
+          reader.onload = function(readerEvt) {
+              var binaryString = readerEvt.target.result;
+              var fileending = file.type;
 
-                    reader.readAsBinaryString(file);
-                }
-            };
+              var test = btoa(binaryString);
+              var final = "data:" + fileending+";base64," + test;
+              document.getElementById("img_preview").src = final
+              document.getElementById("usuario_foto").value = test
+          };
 
-            if (window.File && window.FileReader && window.FileList && window.Blob) {
-                document.getElementById('filePicker').addEventListener('change', handleFileSelect, false);
-            } else {
-                alert('The File APIs are not fully supported in this browser.');
-            }
-            </script>
-            <div class="form-group">
-              <img id="img_preview" src="<%= user.foto %>" style="width:200px; height: auto; margin-bottom: 15px;"/>
-            <input type="file" id="filePicker" class="form-control">
-            <div class="invisible">
-                <%= form.label :foto, "Picture" %>
-                <%= form.text_field :foto, id: :usuario_foto %>
-            </div>
+          reader.readAsBinaryString(file);
+      }
+  };
 
-          </div>
-        </div>
-          <div class="col-md-9">
-  					  <div class="form-group">
+  if (window.File && window.FileReader && window.FileList && window.Blob) {
+      document.getElementById('filePicker').addEventListener('change', handleFileSelect, false);
+  } else {
+      alert('The File APIs are not fully supported in this browser.');
+  }
+  </script>
+  <div class="form-group">
+    <img id="img_preview" src="<%= user.foto %>" style="width:200px; height: auto; margin-bottom: 15px;"/>
+  <input type="file" id="filePicker" class="form-control">
+  <div class="invisible">
+      <%= form.label :foto, "Picture" %>
+      <%= form.text_field :foto, id: :usuario_foto %>
+  </div>
 
-                  <%= form.text_field :name, id: :usuario_name, placeholder: "Nombre de usuario", :class => 'textfield_img'%>
-  						</div>
-              <div class="form-group">
+</div>
 
-                <%= form.text_field :apellidos, id: :usuario_apellidos, placeholder: "Apellidos" , :class => 'textfield_img'%>
-  						</div>
-              <div class="form-group">
+  <div class="field row" style="width: 60%;">
+    <div class="col-md-6"><%= form.label :name %></div>
+    <div class="col-md-6"><%= form.text_field :name, id: :user_name, id: "textf"%></div>
+  </div>
 
-                <%= form.text_field :email, id: :usuario_email, placeholder: "Email" , :class => 'textfield_img'%>
-  						</div>
-              <div class="form-group">
+  <div class="field row" style="width: 60%;">
+    <div class="col-md-6"><%= form.label :apellidos %></div>
+    <div class="col-md-6"><%= form.text_field :apellidos, id: :user_apellidos , id: "textf" %></div>
+  </div>
 
-                <%= form.password_field :encrypted_password, id: :usuario_encrypted_password, placeholder: "Contraseña" , :class => 'textfield_img'%>
 
-  						</div>
+  <div class="field row" style="width: 60%;">
+    <div class="col-md-6"><%= form.label :email %></div>
+    <div class="col-md-6"><%= form.text_field :email, id: :user_email, id: "textf" %></div>
+  </div>
 
-<br><br><br><br>
+  <div class="field row" style="width: 60%;">
+    <div class="col-md-6"><%= form.label :password %></div>
+    <div class="col-md-6"><%= form.password_field :encrypted_password, id: :user_encrypted_password, id: "textf" %></div>
+  </div>
 
-  						</div>
-    		 </div>
-
-         <div class="row">
-
-			</div>
-       </div>
-       <br><br><br><br>
+  <label style="padding: 20px;">Desmarque si quiere dar de Baja</label>
+  <div class="field row" style="width: 60%;">
+    <div class="col-md-6"><%= form.label :activo %></div>
+    <div class="col-md-6"><%= form.check_box :activo, id: :usuario_activo %></div>
+  </div>
+  <label style="padding: 20px;">Quiere volver al usuario vendedor?</label>
+  <div class="field row" style="width: 20%;">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= form.radio_button(:tipo, "v", :checked => (:usuario_tipo == 'v')) %>
+        <%= label_tag(:usuario_tipo,  "Volver vendedor:") %>
     </div>
   </div>
-  <br>   <br><br><br><br>
-  <div class= "servicio_reg">
-    <br><br><br><br><br><br><br><br>
-  	<div class="row">
-  		<div class="col-md-12">
-        <script>
-          $(".radio_btn_uncheck_o").on("change", function(){
-          $("#reference_btn").toggle($(this).hasClass("radio_btn_uncheck_o"));
-          });
-        </script>
-        <div class="form-group">
-           <div class="col-sm-offset-2 col-sm-10">					<!--<label for="inputEmail3" class="col-sm-2 control-label">
-            Email
-          </label>-->
-              <%= form.radio_button(:tipo, "u", :class => "radio_btn_uncheck_b", :checked => (:usuario_tipo == 'u')) %>
-              <%= label_tag(:usuario_tipo, "",:class => "busco_lab") %>
-
-            <!--<input type="email" class="form-control" id="inputEmail3" />-->
-
-          </div>
-        </div>
-
-        <div class="form-group">
-           <div class="col-sm-offset-2 col-sm-10">
-            <%= form.radio_button(:tipo, "u", :class => "radio_btn_uncheck_o", :checked => (:usuario_tipo == 'u')) %>
-            <%= label_tag(:usuario_tipo, "", :class => "ofrezco_lab") %>
-           </div>
-        </div>
-        <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10">
-            <%= form.radio_button(:tipo, "v", :class => "radio_btn_uncheck_v", :checked => (:usuario_tipo == 'v')) %>
-              <%= label_tag(:usuario_tipo,  "", :class => "vendedor_lab") %>
-          </div>
-        </div>
-        <div class="row">
-          <br><br><br><br><br><br><br>
-
-  				<div class="col-md-4">
-
-             <div class="actions">
-
-               <%=form.submit (""), :class => 'submit_registro'%>
-
-             </div>
-
-  				</div>
-        </div>
-        <br>
-
-      </div>
+  <div class="field row" style="width: 20%;">
+     <div class="col-sm-offset-2 col-sm-10">
+       <%= form.radio_button(:tipo, "u", :checked => (:usuario_tipo == 'u')) %>
+       <%= label_tag(:usuario_tipo, "Mantener como usuario:") %>
+     </div>
   </div>
-</div>
+
+
+  <div class="field row" style="width: 40%;">
+    <div class="col-md-6"><% form.label :foto %></div>
+    <div class="col-md-6"><% form.text_field :foto, id: :usuario_foto %></div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit ("ACEPTAR")%>
+  </div>
 <% end %>
+
+
+</center>

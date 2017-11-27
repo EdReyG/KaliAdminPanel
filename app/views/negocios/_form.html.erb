@@ -49,10 +49,13 @@
      </div>
   </div>
 <br />
-  <div class="field row" style="width: 100%;">
-      <div class="col-md-6"><%= form.label "Verificado "%></div>
-      <div class="col-md-6" style="left: -840px;top: 50px;"><label>Escriba: 1 si ACEPTA  los datos o -1 si desea dar de BAJA</label></div>
-      <div class="col-md-6" style="left: 600px;"><%= form.number_field :verificado, id: :negocio_verificado %></div>
+<br />
+  <label style="left: -20px;">Desmarque si quiere dar de Baja</label>
+  <br />
+  <div class="field row" style="width: 60%;">
+    <br />
+    <div class="col-md-6"><%= form.label :verificado %></div>
+    <div class="col-md-6"><%= form.check_box :verificado, id: :negocio_verificado %></div>
   </div>
 
   <div class="field">

@@ -44,13 +44,13 @@
 <h1 class = "naranja1">Editando Usuario</h1>
 
 <section class ="centrado">
-<%= render 'form', users: @usuario %>
+<%= render 'form', user: @usuario %>
 
 <%= link_to 'Ver Perfil', @usuario %> |
 <%if @usuario.activo%>
     <%= link_to 'Regresar', user_path %>
 <%else%>
-    <%= link_to 'Regresar', {:controller => "rechazados", :action => "usuarios"} %>
+    <%= link_to 'Regresar', {:controller => "rechazados", :action => "users"} %>
 <%end%>
 
 </section>

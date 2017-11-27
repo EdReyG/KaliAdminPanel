@@ -13,35 +13,28 @@
   <% end %>
 
   <div class="field row" style="width: 40%; padding: 15px;">
-    <div class="col-md-6"><%= form.label :nombre %></div>
+    <div class="col-md-6" style="left: -124px;"><%= form.label :nombre %></div>
     <div class="col-md-6"><%= form.text_field :nombre, id: :promocion_nombre%></div>
   </div>
 
   <div class="field row" style="width: 40%; padding: 15px;">
-    <div class="col-md-6"><%= form.label :descripcion %></div>
+    <div class="col-md-6" style="left: -105px;"><%= form.label :descripcion %></div>
     <div class="col-md-6"><%= form.text_field :descripcion, id: :promocion_descripcion %></div>
   </div>
 
-  <center><label>Escriba:</label><br>
-  <label>1 para Aceptarla</label><br>
-  <label>-1 para darla de BAJA o rechazarla</label><br></center>
-  <div class="field row" style="width: 40%; padding: 15px;">
-    <div class="col-md-6"><%= form.label :aprobada %></div>
-    <div class="col-md-6"><%= form.number_field :aprobada, id: :promocion_aprobada %></div>
+  <label style="padding: 20px;">Desmarque si quiere dar de Baja</label>
+  <div class="field row" style="width: 60%;">
+    <div class="col-md-6" style="left: -20px;"><%= form.label :aprobada %></div>
+    <div class="col-md-6"><%= form.check_box :aprobada, id: :promocion_aprobada %></div>
   </div>
 
   <div class="field row" style="width: 40%; padding: 15px;">
-    <div class="col-md-6"><% form.label :poster , class: 'oculto-casi'%></div>
+    <div class="col-md-6" style="left: -9px;"><% form.label :poster , class: 'oculto-casi'%></div>
     <div class="col-md-6"><% form.text_field :poster, {id: :promocion_poster, class: 'oculto-casi'}%></div>
   </div>
 
-  <div class="field row" style="width: 60%; padding: 15px;">
-    <div class="col-md-6"><%= form.label :fecha_registro %></div>
-    <div class="col-md-6"><%= form.datetime_select :fecha_registro, id: :promocion_fecha_registro %></div>
-  </div>
-
   <div class="field row" style="width: 40%; padding: 15px;">
-    <div class="col-md-6"><%= form.label :negocio_id %></div>
+    <div class="col-md-6" style="left: -115px;"><%= form.label :negocio_id %></div>
     <div class="col-md-6"><%=form.collection_select(:negocio_id, Negocio.all, :id,:nombre_empresa, prompt: "Selecciona la empresa que desees", class: 'grande_l') %></div>
 
   </div>
