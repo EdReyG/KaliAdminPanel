@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :vendedors
   resources :venta
   resources :entrevistas
+  resources :solicitud_cambios
 
   root 'inicio#opciones'
 
@@ -34,5 +35,9 @@ Rails.application.routes.draw do
   get 'entrevistas/index'
 
   get 'entrevistas/new'
+
+  get 'solicitudcambios/index'
+
+  get 'solicitudcambios/new'
 
 end
