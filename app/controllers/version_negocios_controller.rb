@@ -1,12 +1,10 @@
-class SolicitudCambiosController < ApplicationController
-
-
-
+class VersionNegociosController < ApplicationController
+before_action :set_negocio, only: [:show, :edit, :update, :destroy]
 # GET /negocios
 # GET /negocios.json
 def index
 
-  @negocios = VersionNegocio.all.includes(:user).where(aprobado: 0)
+  @negocios = VersionNegocio.all.where(aprobado: 0)
 
   #cambiar al directorio /public
   Dir.chdir "#{Rails.root.join('public')}"
@@ -52,7 +50,7 @@ def show
   #iteración de todos los usuarios en el arreglo @usuarios
     # creamos una variable que va a crear en string el nombre de la foto que se va a guardar
     # ej. user_image_23.png para el usuario con id 23
-    saveName = "business_image_#{@negocio.id}.png"
+    saveName = "business_image_#{@negocio_o.id}.png"
 
     # abrimos el filestream para escritura con el nombre de la variable saveName
     fotoUsuario = File.open(saveName, 'wb') do |f|
@@ -61,11 +59,11 @@ def show
     begin
       # intentamos convertir los bytes que se reciben de la base de datos en encoding BASE64
       # y lo escribimos en el filestream usando decode64. Se guardaría en /public/user_image_23.png
-      f.write(Base64.urlsafe_decode64(@negocio.imagen))
+      f.write(Base64.urlsafe_decode64(@negocio_o.imagen))
 
       # cambiamos el contenido de la propiedad foto para que no sea el arreglo de bytes sino el
       # nombre con el que quedó guardado en /public/
-      @negocio.imagen=saveName
+      @negocio_o.imagen=saveName
 
       # cerramos el stream
       f.close
@@ -73,14 +71,14 @@ def show
     rescue => ex
       # ignoramos lo que se haya jalado de la base de datos y ponemos de nombre una imagen genérica
       # esta imagen debe estar guardada eb /public/
-      @negocio.imagen="default_user_image.png"
+      @negocio_o.imagen="default_user_image.png"
     end
 end
 end
 
 # GET /negocios/new
 def new
-  @negocio = Negocio.new
+
 
 end
 
@@ -92,30 +90,27 @@ end
 # POST /negocios
 # POST /negocios.json
 def create
-  @negocio = Negocio.new(negocio_params)
 
-  respond_to do |format|
-    if @negocio.save
-
-      format.html { redirect_to @negocio, notice: 'Negocio was successfully created.' }
-      format.json { render :show, status: :created, location: @negocio }
-    else
-      format.html { render :new }
-      format.json { render json: @negocio.errors, status: :unprocessable_entity }
-    end
-  end
 end
 
 # PATCH/PUT /negocios/1
 # PATCH/PUT /negocios/1.json
 def update
+
   respond_to do |format|
-    if @negocio.update(negocio_params)
-      format.html { redirect_to @negocio, notice: 'Negocio was successfully updated.' }
-      format.json { render :show, status: :ok, location:@negocio}
+    if @negocio_o.update(version_negocio_params)
+      @negocio_soli = Negocio.where("id=?", @negocio_o.negocio_id)
+      @negocio_soli.each do |soli|
+        puts soli.id
+      puts @negocio_o.negocio_id
+      Negocio.where(@negocio_o.negocio_id.to_s , soli.id.to_s ).limit(1).update(:nombre_empresa => version_negocio_params[:nombre_empresa], :imagen => version_negocio_params[:imagen], :descripcion => version_negocio_params[:descripcion] )
+      format.html { redirect_to @negocio_o, notice: 'Negocio was successfully updated.' }
+      format.json { render :show, status: :ok, location:@negocio_o}
+      end
     else
       format.html { render :edit }
-      format.json { render json: @negocio.errors, status: :unprocessable_entity }
+      format.json { render json: @negocio_o.errors, status: :unprocessable_entity }
+
     end
   end
 end
@@ -123,7 +118,7 @@ end
 # DELETE /negocios/1
 # DELETE /negocios/1.json
 def destroy
-  @negocio.destroy
+  @negocio_o.destroy
   respond_to do |format|
     format.html { redirect_to negocios_url, notice: 'Negocio was successfully destroyed.' }
     format.json { head :no_content }
@@ -133,14 +128,14 @@ end
 private
   # Use callbacks to share common setup or constraints between actions.
   def set_negocio
-    @negocio = Negocio.find(params[:id])
+    @negocio_o = VersionNegocio.find(params[:id])
   end
 
 
 
   # Never trust parameters from the scary internet, only allow the white list through.
-  def negocio_params
-    params.require(:negocio).permit(:nombre_empresa, :latitud, :longitud, :verificado, :precio_promedio, :rating_precio, :rating_calidad, :imagen, :cantidad_rating, :cantidad_precio, :ultima_conexion, :fecha_registro, :user_id, :veces_visto, :membresia_id, :telefono, :descripcion)
+  def version_negocio_params
+    params.require(:version_negocio).permit(:nombre_empresa, :latitud, :longitud, :precio_promedio, :imagen, :version, :aprobado, :negocio_id, :descripcion)
   end
 
 

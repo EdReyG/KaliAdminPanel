@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :vendedors
   resources :venta
   resources :entrevistas
-  resources :solicitud_cambios
+  resources :version_negocios
 
   root 'inicio#opciones'
 
@@ -36,8 +36,9 @@ Rails.application.routes.draw do
 
   get 'entrevistas/new'
 
-  get 'solicitudcambios/index'
+  get 'version_negocios/index'
 
-  get 'solicitudcambios/new'
+  get 'version_negocios/destroy'
+
 
 end

@@ -164,7 +164,7 @@ ul li span{
         <div>
           <%=link_to "Negocios Pendientes", {controller: "pendientes"}, class: "amarillo"%>
           <%=link_to "Negocios Rechazados y BAJAS", {controller: "rechazados", action: "negocios"}, class: "rojo"%>
-          <%=link_to "Solicitud de cambios al negocio", {controller: "solicitud_cambios", action: "index"}, class: "rojo"%>
+          <%=link_to "Solicitud de cambios al negocio", {controller: "version_negocios", action: "index"}, class: "rojo"%>
         </div>
         <h1>NEGOCIOS VERIFICADOS ACTIVOS</h1>
         <%= form_tag("/negocios", :method => "GET", id: "search-form") do %>

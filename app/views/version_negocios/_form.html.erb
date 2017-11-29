@@ -1,0 +1,94 @@
+<%= form_with(model: negocio, local: true) do |form| %>
+  <% if negocio.errors.any? %>
+     <div id="error_explanation">
+       <h2><%= pluralize(negocio.errors.count, "error") %> prohibited this negocio from being saved:</h2>
+
+       <ul>
+       <% negocio.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+   <% end %>
+   <br /><br />
+   <div class="field row" style="width: 100%;">
+       <div class="col-md-6"><%= form.label :nombre_empresa %></div>
+       <div class="col-md-6" style="left: -260px;bottom: 10px;"><%= form.text_field :nombre_empresa, id: :negocio_nombre_empresa %></div>
+   </div>
+
+  <div class="row">
+     <div class="col-xs-8 col-sm-10 padding-right-0">
+        <input id="autocomplete"  onfocus="geolocate()" type="text" class="form-control kali-input-smpan">
+     </div>
+     <div class="col-xs-4 col-sm-2 padding-left-0">
+        <button type="button" class="btn btn-block kali-btn-primario" onclick="useLocation()"><i id="find-me-icon" class="fa fa-location-arrow" style="color: #3763A2;"></i></button>
+     </div>
+     <!-- detalles de la dirección (oculto) -->
+     <div style="display: none">
+				<div class="row">
+	          <div class="col-xs-12 col-sm-6">
+	              <div class="form-group">
+				      			<label for="latbox">Lat</label>
+                       <%= form.text_field :latitud, id:'geometry.location.lat'%>
+                </div>
+           </div>
+	         <div class="col-xs-12 col-sm-6">
+	             <div class="form-group">
+	                 <label for="lngbox">Lng</label>
+	                    <%= form.text_field :longitud, id:'geometry.location.lng' %>
+	             </div>
+	         </div>
+	      </div>
+    </div>
+     <!-- /detalles de la dirección (oculto) -->
+  </div>
+  <br />
+  <div class="row">
+     <div class="col-xs-12">
+        <div id="map"></div>
+     </div>
+  </div>
+<br />
+<br />
+  <label style="left: -20px;">Desmarque si quiere dar de Baja</label>
+  <br />
+  <div class="field row" style="width: 60%;">
+    <br />
+    <div class="col-md-6"><%= form.label :verificado %></div>
+    <div class="col-md-6"><%= form.check_box :verificado, id: :negocio_verificado %></div>
+  </div>
+
+  <div class="field">
+    <% form.label :imagen, class: 'oculto-casi sieO'%>
+    <% form.text_field :imagen, {id: :negocio_imagen, class: 'oculto-casi sieO'} %>
+  </div>
+
+<br />
+  <div class="field mem">
+      <div class="col-md-6" style="left: -9px;"><%= form.label :usuario_id%></div>
+      <div class="col-md-6" style="left: -253px;"><%=form.collection_select(:user_id, User.all, :id,:name_with_initial, prompt: "Selecciona al usuario que decidas", class: 'grande_l') %></div>
+  </div>
+
+<br /><br />
+  <div class="field mem">
+    <div class="col-md-6" style="left: -9px;"><%= form.label :membresia_id%></div>
+    <div class="col-md-6" style="left: -253px;"><%=form.collection_select(:membresia_id, Membresium.all, :id,:nombre, prompt: "Selecciona la membresia que decidas", class: 'grande_l') %></div>
+  </div>
+<br /><br />
+  <div class="field">
+    <div class="col-md-6" style="left: -9px;"><%= form.label :telefono %></div>
+    <div class="col-md-6" style="left: -253px;"><%= form.text_field :telefono, {id: :negocio_telefono} %></div>
+  </div>
+<br />
+  <div class="field">
+    <div class="col-md-6" style="left: -9px;"><%= form.label :descripcion %></div>
+    <div class="col-md-6" style="left: -253px;"><%= form.text_field :descripcion, {id: :negocio_descripcion} %></div>
+  </div>
+<br /><br />
+<center>
+  <div class="actions">
+    <%= form.submit("ACEPTAR") %>
+  </div>
+</center>
+
+<% end %>

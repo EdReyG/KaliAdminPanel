@@ -144,7 +144,7 @@ ul li span{
   <header id="main-header">
 
     <a id="logo-header" class="ocultar" >
-      <span class="site-name">Negocios Registrados</span>
+      <span class="site-name">Negocios con cambios</span>
       <span class="site-desc">Lista (por nombre del negocio)</span>
     </a> <!-- / #logo-header -->
 
@@ -174,13 +174,11 @@ ul li span{
         <ul>
           <% @negocios.each do |negocio| %>
           <li>
-            <span id = "nombre">Negocio: <%=negocio.nombre_empresa%></span>
-            <span id = "correo">Dueño: <%= negocio.user.name %> <%= negocio.user.apellidos %></span>
-            <button id = "btIr" >
-              <%= link_to 'Eliminar',  negocio,method: :delete ,data: { confirm: 'Desea eliminar el negocio?' } %>
-            </button>
+            <span id = "nombre">Nombre: <%=negocio.nombre_empresa%></span>
+
+            <%= puts negocio.id%>
             <button id = "btIr">
-                    <%= link_to 'Ver Perfil', negocio %>
+                    <%= link_to 'Ver solicitud', negocio %>
             </button>
           </li>
           <% end %>
