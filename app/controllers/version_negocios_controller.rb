@@ -97,21 +97,33 @@ end
 # PATCH/PUT /negocios/1.json
 def update
 
-  respond_to do |format|
-    if @negocio_o.update(version_negocio_params)
+  @nombre_empresa = params[:nombre_empresa]
+  @descripcion = params[:descripcion]
+  @latitud = params[:latitud]
+  @longitud = params[:longitud]
+  @precio_promedio = params[:precio_promedio]
+  @imagen = params[:imagen]
+  @version = params[:version]
+  @aprobado = params[:aprobado]
+
+  if @negocio_o.update(:nombre_empresa => @nombre_empresa,:descripcion => @descripcion,:aprobado=> @aprobado )
+    if (@aprobado == 1)
       @negocio_soli = Negocio.where("id=?", @negocio_o.negocio_id)
       @negocio_soli.each do |soli|
-        puts soli.id
-      puts @negocio_o.negocio_id
-      Negocio.where(@negocio_o.negocio_id.to_s , soli.id.to_s ).limit(1).update(:nombre_empresa => version_negocio_params[:nombre_empresa], :imagen => version_negocio_params[:imagen], :descripcion => version_negocio_params[:descripcion] )
-      format.html { redirect_to @negocio_o, notice: 'Negocio was successfully updated.' }
-      format.json { render :show, status: :ok, location:@negocio_o}
+      puts soli.id
+      puts "Entro al update"
+      Negocio.where(@negocio_o.negocio_id.to_s , soli.id.to_s ).update_all(:nombre_empresa => @nombre_empresa, :imagen => @imagen, :descripcion => @descripcion )
       end
     else
-      format.html { render :edit }
-      format.json { render json: @negocio_o.errors, status: :unprocessable_entity }
-
+      puts "Nego el update"
     end
+  else
+    puts "Ni entro el update"
+  end
+
+  respond_to do |format|
+    format.html { redirect_to version_negocios_url, notice: 'Updated' }
+    format.json { head :no_content }
   end
 end
 
@@ -134,9 +146,5 @@ private
 
 
   # Never trust parameters from the scary internet, only allow the white list through.
-  def version_negocio_params
-    params.require(:version_negocio).permit(:nombre_empresa, :latitud, :longitud, :precio_promedio, :imagen, :version, :aprobado, :negocio_id, :descripcion)
-  end
-
 
 end
