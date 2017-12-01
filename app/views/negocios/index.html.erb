@@ -209,7 +209,7 @@ ul li span{
             <span id = "nombre">Negocio: <%=negocio.nombre_empresa%></span>
             <span id = "correo">Dueño: <%= negocio.user.name %> <%= negocio.user.apellidos %></span>
             <button id = "btIr" >
-              <%= link_to 'Eliminar',  negocio,method: :delete ,data: { confirm: 'Desea eliminar el negocio?' } %>
+              <%= link_to 'Eliminar',  negocio,method: :delete ,data: { confirm: 'Desea mandar el negocio a rechazados?' } %>
             </button>
             <button id = "btIr">
                     <%= link_to 'Ver Perfil', negocio %>

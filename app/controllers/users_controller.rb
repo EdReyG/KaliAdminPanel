@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   def index
 
     if params[:search] != 0
-      @usuarios = User.where("name LIKE ? or apellidos LIKE ?","%#{params[:search]}%","%#{params[:search]}%")
+      @usuarios = User.where("name LIKE ? or apellidos LIKE ?","%#{params[:search]}%","%#{params[:search]}%").where(activo: true)
 
     else
       #obtener todos los usuarios y pasarlos a la variable @usuarios
@@ -153,8 +153,8 @@ class UsersController < ApplicationController
   # DELETE /usuarios/1
   # DELETE /usuarios/1.json
   def destroy
-    @usuario.destroy
 
+    @usuario.update(:activo => false)
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'Usuario was successfully destroyed.' }
       format.json { head :no_content }

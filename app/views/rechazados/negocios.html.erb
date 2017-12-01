@@ -94,7 +94,7 @@ ul li span{
 
     <nav class = "abajo">
       <ul>
-        
+
         <li id = "op4"><a><%= link_to "Regresar", :controller => "negocios", :action => "index" %></a></li>
       </ul>
     </nav><!-- / nav -->
@@ -113,12 +113,12 @@ ul li span{
 <br>
 <br>
 
-<%if @negocios.length >0%>
+<%if @negocios.!= nil%>
         <ul>
           <% @negocios.each do |negocio| %>
           <li>
             <span id = "nombre">Negocio: <%=negocio.nombre_empresa%></span>
-            <span id = "correo">Dueño: <%= negocio.user.nombre_usuario %> <%= negocio.usuario.apellidos %></span>
+            <span id = "correo">Dueño: <%= negocio.user.name %> <%= negocio.user.apellidos %></span>
             <button id ="btbt" class = "abajo"><%= link_to 'Ver Perfil', negocio %> </button>
 
           </li>

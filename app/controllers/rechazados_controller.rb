@@ -1,7 +1,7 @@
 class RechazadosController < ApplicationController
 
   def negocios
-  	@negocios = Negocio.all.includes(:usuario).where(verificado: -1).order(:nombre_empresa)
+  	@negocios = Negocio.all.includes(:user).where(verificado: -1).order(:nombre_empresa)
   end
 
   def promociones

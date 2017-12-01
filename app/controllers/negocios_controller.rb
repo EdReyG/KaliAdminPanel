@@ -145,7 +145,7 @@ class NegociosController < ApplicationController
   # DELETE /negocios/1
   # DELETE /negocios/1.json
   def destroy
-    @negocio.destroy
+    @negocio.update(:verificado => -1)
     respond_to do |format|
       format.html { redirect_to negocios_url, notice: 'Negocio was successfully destroyed.' }
       format.json { head :no_content }

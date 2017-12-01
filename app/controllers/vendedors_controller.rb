@@ -5,15 +5,16 @@ class VendedorsController < ApplicationController
   # GET /vendedors.json
   def index
     #@vendedors = Vendedor.all.includes(:usuario)
-    if params[:search] != 0
-
-      @usuarios = User.where("name LIKE ? or apellidos LIKE ?","%#{params[:search]}%","%#{params[:search]}%").where(tipo: "v")
+    if params[:search] != nil
+      puts "****HAy****"
+      @usuarios = User.where("name LIKE ? or apellidos LIKE ?","%#{params[:search]}%","%#{params[:search]}%")
       @usuarios.each do |vende| @vendedores = Vendedor.where("user_id =?", vende.id)
       end
-    elsif params[:search] == 0
-
+    elsif params[:search] == nil
+      puts "*****SIN BUSCAR*****"
       @usuarios = User.where(tipo: "v")
-      @usuarios.each do |vende| @vendedores = Vendedor.where("user_id =?", vende.id)
+      @usuarios.each do |vende| @vendedores = Vendedor.all
+        puts @vendedores
       end
     end
 
