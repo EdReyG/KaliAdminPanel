@@ -1,53 +1,13 @@
 <style>
 
-@media screen and (max-width: 1200px){
-
-  #derecha{
-    margin-left: 20%;
-    width: 100%;
-  }
-
-  #btIr{
-    margin-right: -35%;
-    margin-top: 45%;
-  }
-
-}
-
-@media screen and (min-width: 1200px){
-
-
-  #derecha{
-    margin-left: 10%;
-    width: 100%;
-  }
-
-  //ajustar el boton de ver la empresa
-
-  #btIr{
-    margin-right: 50%;
-  }
-}
-
-
-@media screen and (min-width: 1500px){
-
-
-  #derecha{
-    margin-left: 10%;
-    width: 100%;
-  }
-}
 
 .amarillo{
-
   font-weight: bold;
   background: orange;
   font-size: 100%;
   float:right;
   clear: right;
 }
-
 .rojo{
   font-weight: bold;
   background: orange;
@@ -55,87 +15,12 @@
   float:right;
   clear: right;
 }
-
-h1{
-  clear: both;
-}
-
-
-@media screen and (max-width: 800px){
-
-  .amarillo{
-    float: left;
-    margin-left: -8%;
-  }
-
-  .rojo{
-    margin-bottom: 15%;
-    clear: none;
-    margin-right: -8%;
-  }
-
-  .op3{
-    display: none;
-  }
-
-
-}
-
-#btIr{
-  padding: 0%;
-  margin:0%;
-}
-
 h1{
   clear: both;
 }
 
 
 
-#nombre{
-    margin-left: 8%;
-}
-
-ul li span{
-  float: left;
-  margin-top: 1.5%;
-}
-
-#correo{
-  margin-left: 10%;
-}
-
-#btIr{
-  width: 15%;
-  margin-top: 1%;
-}
-
-@media screen and (max-width: 800px){
-
-#btIr{ float: right;
-  margin-top: 3%;
-  width: 30%;
-
-}
-
-.nuevo{
-
-  border-radius: 5px;
-
-}
-}
-
-.nuevo{
-  font-weight: bold;
-  font-size: 120%;
-  margin-left: 40%;
-  margin-right: 40%;
-  width: 20%;
-  margin-bottom: 3%;
-  color: orange;
-  background-color: orange;
-  text-align: center;
-}
 
 </style>
 
@@ -203,20 +88,28 @@ ul li span{
       </header>
       <br><br><br><br><br><br><br>
 
-        <ul>
+
+
           <% @negocios.each do |negocio| %>
-          <li>
-            <span id = "nombre">Negocio: <%=negocio.nombre_empresa%></span>
-            <span id = "correo">Dueño: <%= negocio.user.name %> <%= negocio.user.apellidos %></span>
-            <button id = "btIr" >
+          <table class="table table-striped table-hover table-bordered">
+            <tbody>
+            <tr class="table-success">
+              <td>
+            <span style="left:300px;position:absolute;">Negocio: <%=negocio.nombre_empresa%></span>
+            <span style = "left:600px; position:absolute;">Dueño: <%= negocio.user.name %> <%= negocio.user.apellidos %></span>
+            <button style="left:1650px;width:100px; position:absolute;" type="button" class="btn btn-danger">
               <%= link_to 'Eliminar',  negocio,method: :delete ,data: { confirm: 'Desea mandar el negocio a rechazados?' } %>
             </button>
-            <button id = "btIr">
+            <button style="left:1650px;width:100px;"type="button" class="btn btn-warning">
                     <%= link_to 'Ver Perfil', negocio %>
             </button>
-          </li>
+          </td>
+          </tr>
+        </tbody>
+      </table>
           <% end %>
-        </ul>
+
+
     </article> <!-- /article -->
 
 </section>
