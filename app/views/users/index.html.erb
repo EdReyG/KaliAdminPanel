@@ -144,23 +144,25 @@ ul li span{
 
   </header><!-- / #main-header -->
 
-<section id="main-content">
-    <article id = "primer">
+<section >
+    <article>
       <header>
-      
+        <br /><br />
         <h1>USUARIOS</h1>
+        <br />
         <%= form_tag("/users", :method => "GET", id: "search-form") do %>
             <%= text_field_tag :search, params[:search], placeholder: ""%>
-            <%= submit_tag "Buscar", :name => nil %>
+            <%= submit_tag "Buscar", :name => nil ,class: "btn btn-warning"%>
         <% end %>
       </header>
 
     <div class="tab-container" style="padding-top: 50px;">
     <div class="tab">
-      <button class="tablinks" id="hide" onclick="openCity(event, 'Tunegocio')">
+      <button class= "btn btn-warning" id="hide" onclick="openCity(event, 'Tunegocio')">
         Nombre
       </button>
-      <button class="tablinks" id="hide1" onclick="openCity(event, 'Buscar')">
+
+      <button class= "btn btn-warning" id="hide1" onclick="openCity(event, 'Buscar')">
         Apellido
       </button>
 

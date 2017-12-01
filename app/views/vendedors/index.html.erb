@@ -120,18 +120,18 @@ ul li span{
 
 
 
-<section id="main-content">
-
-
+<section>
+<br /><br /><br />
     <article id = "primer">
       <header>
         <h1>VENDEDORES CON CODIGO</h1>
+        <br /><br />
         <%= form_tag("/vendedors", :method => "GET", id: "search-form") do %>
             <%= text_field_tag :search, params[:search], placeholder: "Por nombre"%>
-            <%= submit_tag "Buscar", :name => nil %>
+            <%= submit_tag "Buscar", :name => nil, class: "btn btn-warning" %>
         <% end %>
       </header>
-      <br><br><br>
+      <br><br><br><br /><br /><br />
         <ul>
           <% if @vendedores == nil %>
 					<h1>No hay ninguna coincidencia</h1>

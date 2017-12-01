@@ -47,60 +47,66 @@ h1{
       <header>
         <br><br><br><br><br>
         <div>
-          <%=link_to "Negocios Pendientes", {controller: "pendientes"}, class: "amarillo"%>
-          <%=link_to "Negocios Rechazados y BAJAS", {controller: "rechazados", action: "negocios"}, class: "rojo"%>
-          <%=link_to "Solicitud de cambios al negocio", {controller: "version_negocios", action: "index"}, class: "rojo"%>
+          <button type="button" class="btn btn-warning">
+                  <%=link_to "Negocios Pendientes", {controller: "pendientes"}, class: "amarillo"%>
+          </button>
+          <button type="button" class="btn btn-warning">
+                  <%=link_to "Negocios Rechazados y BAJAS", {controller: "rechazados", action: "negocios"}, class: "rojo"%>
+          </button>
+          <button type="button" class="btn btn-warning">
+                  <%=link_to "Solicitud de cambios al negocio", {controller: "version_negocios", action: "index"}, class: "rojo"%>
+          </button>
+<br /><br /><br />
+
         </div>
         <h1>NEGOCIOS VERIFICADOS ACTIVOS</h1>
         <%= form_tag("/negocios", :method => "GET", id: "search-form") do %>
             <%= text_field_tag :search, params[:search], placeholder: "Buscar"%>
-            <%= submit_tag "Buscar", :name => nil %>
+            <%= submit_tag "Buscar",  class: "btn btn-warning",:name => nil %>
         <% end %>
         <br /><br>
 
           <%= form_tag("/negocios", :method => "GET", id: "order-form") do  %>
             <%= text_field_tag :order, params[:order], class: "orderhidden"%>
         <div style="left:-50px;">
-            <%= submit_tag "Ordenar por fecha de registro", :name => nil %>
+            <%= submit_tag "Ordenar por fecha de registro", :name => nil ,class: "btn btn-warning"%>
           <% end %>
         </div>
           <%= form_tag("/negocios", :method => "GET", id: "gratis-form") do %>
               <%= text_field_tag :gratis, params[:gratis], class: "orderhidden"%>
           <div style="left:-50px;">
-              <%= submit_tag "Gratis", :name => nil %>
+              <%= submit_tag "Gratis", :name => nil,class: "btn btn-warning" %>
           <% end %>
           </div>
           <br />
           <%= form_tag("/negocios", :method => "GET", id: "basico-form") do %>
               <%= text_field_tag :basico, params[:basico], class: "orderhidden"%>
               <div style="left:-50px;">
-                  <%= submit_tag "Basico", :name => nil %>
+                  <%= submit_tag "Basico", :name => nil , class: "btn btn-warning"%>
               <% end %>
               </div>
           <br />
           <%= form_tag("/negocios", :method => "GET", id: "premium-form") do %>
               <%= text_field_tag :premium, params[:premium], class: "orderhidden"%>
               <div style="left:-50px;">
-                  <%= submit_tag "Premium", :name => nil %>
+                  <%= submit_tag "Premium", :name => nil , class: "btn btn-warning"%>
               <% end %>
               </div>
 
       </header>
-      <br><br><br><br><br><br><br>
-
-
+      <br><br><br>
 
           <% @negocios.each do |negocio| %>
           <table class="table table-striped table-hover table-bordered">
             <tbody>
             <tr class="table-success">
               <td>
-            <span style="left:300px;position:absolute;">Negocio: <%=negocio.nombre_empresa%></span>
-            <span style = "left:600px; position:absolute;">Dueño: <%= negocio.user.name %> <%= negocio.user.apellidos %></span>
-            <button style="left:1650px;width:100px; position:absolute;" type="button" class="btn btn-danger">
+            <span style="left:220px;position:absolute; font-size: 25px;">Negocio: <%=negocio.nombre_empresa%></span>
+            <span style = "left:600px; position:absolute; font-size:25px;">Dueño: <%= negocio.user.name %> <%= negocio.user.apellidos %></span>
+            <button style="left:1650px;width:100px; position:absolute;height:50px" type="button" class="btn btn-danger">
               <%= link_to 'Eliminar',  negocio,method: :delete ,data: { confirm: 'Desea mandar el negocio a rechazados?' } %>
             </button>
-            <button style="left:1650px;width:100px;"type="button" class="btn btn-warning">
+            <button style="left:1650px;width:100px;height:50px;"type="button" class="btn btn-warning">
                     <%= link_to 'Ver Perfil', negocio %>
             </button>
           </td>
