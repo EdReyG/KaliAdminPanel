@@ -149,7 +149,7 @@ ul li span{
           <% @negocios.each do |negocio| %>
           <li>
             <span id = "nombre"><%=negocio.nombre_empresa%></span>
-            <span id = "correo">Propietario: <%= negocio.usuario.nombre_usuario %> <%= negocio.usuario.apellidos %></span>
+            <span id = "correo">Propietario: <%= negocio.user.name %> <%= negocio.user.apellidos %></span>
             <button id = "btIr">
                     <%= link_to 'Ver Perfil', negocio %>
             </button>

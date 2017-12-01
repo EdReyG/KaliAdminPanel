@@ -104,6 +104,16 @@ class NegociosController < ApplicationController
   # POST /negocios
   # POST /negocios.json
   def create
+
+    if negocio_params[:imagen] == nil
+      base64 = ""
+    elsif negocio_params[:imagen] == ""
+      base64 = ""
+    else
+      base64 = negocio_params[:imagen]
+      base64.slice!('data:image/png;base64,')
+    end
+
     @negocio = Negocio.new(negocio_params)
 
     respond_to do |format|

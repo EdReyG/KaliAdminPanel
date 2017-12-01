@@ -1,3 +1,33 @@
+<script>
+function readFile(input) {
+
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (event) {
+        $profilePicPreview.croppie('bind', {
+          url: event.target.result
+        });
+      };
+      reader.readAsDataURL(input.files[0]);
+      document.getElementById('imageFileName').value = input.files[0].name
+    } else {
+      alert('Sorry - you\'re browser doesn\'t support the FileReader API');
+    }
+
+}
+function saveResult(input){
+    /*$profilePicPreview.croppie('result', 'canvas').then(function (resp) {
+         $('#result-image').attr('src', resp);
+         $('#result-image').css('width', '130px');
+         $('#result-image').css('height', '130px');
+    });*/
+
+    $profilePicPreview.croppie('result', 'base64').then(function (resp) {
+        document.getElementById('base64string').value = resp;
+    });
+}
+</script>
 <%= form_with(model: negocio, local: true) do |form| %>
   <% if negocio.errors.any? %>
      <div id="error_explanation">
@@ -58,9 +88,14 @@
     <div class="col-md-6"><%= form.check_box :verificado, id: :negocio_verificado %></div>
   </div>
 
-  <div class="field">
-    <% form.label :imagen, class: 'oculto-casi sieO'%>
-    <% form.text_field :imagen, {id: :negocio_imagen, class: 'oculto-casi sieO'} %>
+  <div class="input-group">
+      <label class="input-group-btn">
+          <span class="btn kali-btn-browse">
+              Elige una imagen<input type="file" id="profile-picture-upload" style="display: none;">
+          </span>
+      </label>
+      <input type="text" id="imageFileName" class="form-control kali-input kali-file-input" style="font-size: 10px;" readonly>
+      <%= form.text_field( :imagen, id: :negocio_imagen, class:'form-control kali-input-sm', style: 'display:none;') %>
   </div>
 
 <br />

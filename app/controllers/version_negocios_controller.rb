@@ -105,21 +105,21 @@ def update
   @imagen = params[:imagen]
   @version = params[:version]
   @aprobado = params[:aprobado]
-
-  if @negocio_o.update(:nombre_empresa => @nombre_empresa,:descripcion => @descripcion,:aprobado=> @aprobado )
-    if (@aprobado == 1)
+puts "****************************************************************************8"
+puts @aprobado
+   @negocio_o.update(:nombre_empresa => @nombre_empresa,:descripcion => @descripcion,:aprobado=> @aprobado)
+    if @negocio_o.aprobado == 1
       @negocio_soli = Negocio.where("id=?", @negocio_o.negocio_id)
       @negocio_soli.each do |soli|
       puts soli.id
       puts "Entro al update"
-      Negocio.where(@negocio_o.negocio_id.to_s , soli.id.to_s ).update_all(:nombre_empresa => @nombre_empresa, :imagen => @imagen, :descripcion => @descripcion )
+      soli.update(:nombre_empresa => @nombre_empresa, :imagen => @imagen, :descripcion => @descripcion )
       end
     else
       puts "Nego el update"
     end
-  else
-    puts "Ni entro el update"
-  end
+
+
 
   respond_to do |format|
     format.html { redirect_to version_negocios_url, notice: 'Updated' }
@@ -146,5 +146,9 @@ private
 
 
   # Never trust parameters from the scary internet, only allow the white list through.
+  def version_negocio_params
+    params.require(:version_negocio).permit(:nombre_empresa, :latitud, :longitud, :precio_promedio, :imagen, :version, :aprobado, :negocio_id, :descripcion)
+  end
+
 
 end

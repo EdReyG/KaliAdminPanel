@@ -21,17 +21,31 @@
 	  			<div class="row">
 	  				<div class="col-md-6">
 	  					<div class="form-group" >
-								<%= form.label :nombre_empresa, id: :version_negocio_nombre_empresa%>
-	  				    <%= form.text_field :nombre_empresa, id: :version_negocio_nombre_empresa, placeholder: "Nombre público de la empresa" %>
+								<%= form.label :nombre_empresa, id: params[:nombre_empresa]%>
+	  				    <%= text_field_tag(:nombre_empresa,@negocio_o.nombre_empresa, class:'form-control', id:'nombre_empresa') %>
 	  				  </div>
            		<br>
+							<div class="row form-group">
+                     <label for="aprobado" class="col-xs-12 control-label"><i>Aprobacion: </i></label>
+                     <div class="btn-group segmented" data-toggle="buttons">
+                        <label class="btn del-primary active">
+                           <input type="radio" name="aprobado" value="-1" autocomplete="off">
 
+                           <%= radio_button_tag 'negarlo', -1 %>
+                        </label>
+                        <label class="btn del-primary">
+                           <input type="radio" name="aprobado" value="1" autocomplete="off" checked>
+
+                           <%= radio_button_tag 'aprobado',1 %>
+                        </label>
+                     </div>
+                 </div>
 	  					<div class="form-group">
 								<div class="row form-group">
 								<div class="col-md-4">
 									<div class= "gratis">
 										<label>
-											 <input <%= form.radio_button(:aprobado, -1, :checked => (:version_negocio_aprobado == -1)) %>
+											 <input <%= form.radio_button(:aprobado, -1, :checked => (params[:aprobado] == -1)) %>
 
 											<p>
 												Negar cambios
@@ -44,7 +58,7 @@
 								<div class="col-md-4">
 									<div class= "basico">
 										<label>
-											 <input <%= form.radio_button(:aprobado, 1, :checked => (:version_negocio_aprobado == 1)) %>
+											 <input <%= form.radio_button(:aprobado, 1, :checked => (params[:aprobado] == 1)) %>
 
 											<p>
 												Aceptar cambios
@@ -58,10 +72,10 @@
 	  				  </div>
 	  					<br>
 	  					<div class="form-group">
-								
+
 								<%@aceptar = :version_negocio_aprobado%>
-								<%= form.label :descripcion, id: :version_negocio_descripcion %>
-	              <%= form.text_field :descripcion, id: :version_negocio_descripcion , placeholder: "Descripción"%>
+								<%= form.label :descripcion, id: params[:descripcion] %>
+	              <%= text_field_tag(:descripcion,@negocio_o.descripcion, class:'form-control', id:'descripcion') %>
 	  				  </div>
 	  					<br>
 
