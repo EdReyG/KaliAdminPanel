@@ -26,8 +26,6 @@ Rails.application.routes.draw do
 
   get 'rechazados/promociones'
 
-  get 'rechazados/actualizaciones'
-
   get 'pendientes/rechazados'
 
   get 'pendientes/index'

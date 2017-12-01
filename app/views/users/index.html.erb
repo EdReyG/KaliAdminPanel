@@ -147,9 +147,7 @@ ul li span{
 <section id="main-content">
     <article id = "primer">
       <header>
-      <div>
-        <%=link_to "Usuarios Rechazados y BAJAS", {controller: "rechazados", action: "users"}, class: "rojo"%>
-      </div>
+      
         <h1>USUARIOS</h1>
         <%= form_tag("/users", :method => "GET", id: "search-form") do %>
             <%= text_field_tag :search, params[:search], placeholder: ""%>

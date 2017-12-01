@@ -197,8 +197,8 @@
           <%@vendidos = Ventum.where("vendedor_id=?", vendedor.id);%>
           <% @vendidos.each do |usuario| %>
           <li>
-            <span id = "nombre"><%=usuario.name%> <%=usuario.apellidos%></span>
-            <span id = "correo">Celular: <%=usuario.celular%> Fecha: <%=usuario.fecha_venta%></span>
+            <span id = "nombre"><%=usuario.user.name%> <%=usuario.user.apellidos%></span>
+            <span id = "correo">Celular: <%=usuario.user.celular%> Fecha: <%=vendedor.fecha_venta%></span>
           </li>
           <% end %>
           <% end %>
