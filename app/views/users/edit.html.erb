@@ -39,14 +39,14 @@
 
 
 
-<body class = "fBlanco">
+<body >
 
 <h1 class = "naranja1">Editando Usuario</h1>
 
 <section class ="centrado">
 <%= render 'form', user: @usuario %>
-
-<%= link_to 'Ver Perfil', @usuario %> |
+<button class ="btn-warning"><%= link_to 'Ver Perfil', @usuario %> </button>
+|
 <%if @usuario.activo%>
     <%= link_to 'Regresar', user_path %>
 <%else%>

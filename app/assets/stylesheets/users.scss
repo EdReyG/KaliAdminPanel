@@ -1,6 +1,10 @@
 // Place all the styles related to the Usuarios controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.font_btn
+{
+	color: black;
+}
 
 .descListaU{
 	font-size: 135%;
@@ -256,7 +260,7 @@ section ul li:nth-child(even) label{
 section ul li{
 	border-radius: 10px;
 	list-style: none;
-	background-color: orange;
+	background-color: black;
 }
 
 section ul li{

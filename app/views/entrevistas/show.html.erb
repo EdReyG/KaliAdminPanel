@@ -50,7 +50,7 @@
 .cajita{
   margin-left: 10%;
   width: 90%;
-  background-color: #FFCC80;
+  background-color: orange;
   padding: 0.5%;
 }
 
@@ -130,34 +130,34 @@
 <body class = "fBlanco">
 
 <header id="main-header">
-    
+
     <a id="logo-header" class="ocultar" >
       <span class="site-name">Vendedor</span>
       <span class="site-desc">Historial</span>
     </a> <!-- / #logo-header -->
- 
+
     <nav>
       <ul>
-        
+
         <li id = "op4"><a><%= link_to "Vendedores", :controller => "vendedors", :action => "index" %></a></li>
       </ul>
     </nav><!-- / nav -->
- 
+
   </header>
-    
+
 
   <section id = "nuevoUsuario">
   <article>
   <h1 class="naranja" >DATOS DEL VENDEDOR</h1>
 
   <div class = "cuerpoUsuario">
-  
+
     <div id = "datosUsuario">
 
       <%begin%>
   <!--Aqui pongo el despliegue de la foto-->
   <!--Se logra gracias a lo que esta en el controlador-->
-    <img src="/<%=@usuario.foto%>" width="50px"> 
+    <img src="/<%=@usuario.foto%>" width="50px">
     <br>
   <%rescue%>
   <%end%>
@@ -180,7 +180,7 @@
 
   </div>
   </article>
-  
+
 </section>
 
 <section class = "fNaranja">
@@ -197,7 +197,7 @@
             <span id = "correo">Celular: <%=usuario.celular%> Fecha: <%=usuario.fecha_venta%></span>
           </li>
           <% end %>
-        </ul>      
+        </ul>
   	</article>
 </section>
 

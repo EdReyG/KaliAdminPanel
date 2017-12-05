@@ -1,14 +1,14 @@
 <ul>
   <% @usuarios.order(:name).each do |usuario| %>
   <li>
-    
+
     <span id = "nombre"><%=usuario.apellidos%>  <%=usuario.name%> </span>
     <span id = "correo">Correo: <%=usuario.email%></span>
-    <button id = "btIr" >
+    <button  class= "btn-danger" id = "btIr" >
       <%= link_to 'Eliminar',  usuario,method: :delete ,data: { confirm: 'Desea eliminar el usuario?' } %>
     </button>
-    <button id = "btIr">
-      <%= link_to 'Ver Perfil', usuario %>
+    <button class= "btn-success" id = "btIr">
+      <%= link_to 'Ver Perfil', usuario, {:style=>'color:black;'} %>
     </button>
 
   </li>

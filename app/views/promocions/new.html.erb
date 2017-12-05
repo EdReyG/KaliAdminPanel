@@ -28,16 +28,14 @@
 
 
 
-<body class = "fBlanco">
-
-<h1 class = "naranja1">Alta de Promocion</h1>
+<body >
+<br /><br />
+<h1 >Alta de Promocion</h1>
 
 <section class ="centrado">
 <%= render 'form', promocion: @promocion %>
 
-
-<%= link_to 'Regresar', promocions_path %>
-<%=@res%>
+<button class= "btn-warning"><%= link_to 'Regresar', promocions_path %></button>
 
 </section>
 

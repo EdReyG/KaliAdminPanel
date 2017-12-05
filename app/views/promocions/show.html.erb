@@ -92,7 +92,7 @@
 .cajita{
   margin-left: 5%;
   width: 95%;
-  background-color: #FFCC80;
+  background-color: olive;
   padding: 0.5%;
 }
 /*
@@ -186,7 +186,7 @@ Para el cambio de los tamaños de las pantallas
 <p id="notice"><%= notice %></p>
 
 
-<body class = "fBlanco">
+<body >
 
 <header id="main-header">
 
@@ -246,7 +246,7 @@ Para el cambio de los tamaños de las pantallas
 
 
 <div id = "datosUsuario">
-<%= link_to 'Editar', edit_promocion_path(@promocion) %> 
+<%= link_to 'Editar', edit_promocion_path(@promocion) %>
 
 <% if @promocion.aprobada ==1%>
 

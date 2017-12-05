@@ -37,13 +37,14 @@
 
 
 
-<body class = "fBlanco">
+<body>
 
 
 <section class ="centrado">
 <%= render 'form', user: @usuario %>
 
-<%= link_to 'Regresar',:controller => "users", :action => "index" %>
+<button class= "btn-warning"><%= link_to 'Regresar',:controller => "users", :action => "index" %></button>
+
 
 
 <%=@res%>
